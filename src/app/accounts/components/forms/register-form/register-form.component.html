@@ -1,24 +1,42 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Account Info</ng-template>
       <mat-form-field>
-        <input matInput placeholder="First name" formControlName="firstName" [required]="true">
+        <input matInput placeholder="First Name" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="firstCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="firstCtrl" required>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Continue</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>Volunteer Info</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        <input matInput placeholder="Zip Code" formControlName="secondCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput placeholder="Available Hours Per Week" formControlName="secondCtrl" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input matInput placeholder="Party Affiliation" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <mat-form-field><br>
+        <input matInput placeholder="Gov Level" formControlName="secondCtrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Continue</button>
+        <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>

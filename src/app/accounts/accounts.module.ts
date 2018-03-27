@@ -13,6 +13,7 @@ import {VolunteerService} from './services/volunteer.service';
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { RegisterFormComponent } from './components/forms/register-form/register
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatStepperModule,
     AccountsRoutingModule,
     BaseModule
   ],
