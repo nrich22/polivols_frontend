@@ -12,7 +12,7 @@
         <input matInput placeholder="Email" formControlName="firstCtrl" required>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Password" formControlName="firstCtrl" required>
+        <input matInput placeholder="Password" formControlName="firstCtrl" [type]="'password'" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -26,13 +26,21 @@
         <input matInput placeholder="Zip Code" formControlName="secondCtrl" required>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Available Hours Per Week" formControlName="secondCtrl" required>
+        <input matInput placeholder="Available Hours Per Week" formControlName="secondCtrl">
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Party Affiliation" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <mat-form-field><br>
-        <input matInput placeholder="Gov Level" formControlName="secondCtrl" required>
+        <mat-select placeholder="Party Affiliation">
+          <mat-option *ngFor="let party of parties" [value]="party.value">
+            {{ party.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-select placeholder="Gov Level">
+          <mat-option *ngFor="let level of levels" [value]="level.value">
+            {{ level.viewValue }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -41,11 +49,11 @@
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    You are now done.
+    <ng-template matStepLabel>Register</ng-template>
+    Are you ready to volunteer?
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button (click)="stepper.reset()">Register</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

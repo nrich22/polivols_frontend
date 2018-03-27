@@ -14,6 +14,7 @@ import { LoginFormComponent } from './components/forms/login-form/login-form.com
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
     MatStepperModule,
     AccountsRoutingModule,
     BaseModule
