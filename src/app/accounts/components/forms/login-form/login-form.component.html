@@ -4,7 +4,7 @@
       <mat-form-field>
         <input matInput [placeholder]="'Email'" [required]="true" [formControlName]="'email'">
         <mat-error *ngIf="email.hasError('required')">
-          You must include a username.
+          You must include a email.
         </mat-error>
         <mat-error *ngIf="email.hasError('email')">
           You must have a valid email format!

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthenticationService {
 
+  private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
 
   login(email: string, password: string) {
@@ -20,6 +21,15 @@ export class AuthenticationService {
         localStorage.setItem('token', response.token);
         return response.token;
       });
+  }
+
+  register(data: any, volunteer: boolean = true) {
+    return this.http
+      .post<any>(
+        `${environment.baseUrl}/${volunteer ? 'volunteers' : 'campaigns'}/register/`,
+        JSON.stringify(data),
+        this.json_headers
+      );
   }
 
   logout() {

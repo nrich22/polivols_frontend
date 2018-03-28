@@ -1,42 +1,52 @@
-<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
+<form [formGroup]="form">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <mat-step>
       <ng-template matStepLabel>Account Info</ng-template>
       <mat-form-field>
-        <input matInput placeholder="First Name" formControlName="firstCtrl" required>
+        <input matInput [placeholder]="'First Name'" [formControlName]="'first_name'" required>
+        <mat-error *ngIf="first_name.hasError('required')">
+          A first name is required
+        </mat-error>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Last Name" formControlName="firstCtrl" required>
+        <input matInput placeholder="Last Name" formControlName="last_name" required>
+        <mat-error *ngIf="last_name.hasError('required')">
+          A last name is required
+        </mat-error>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Email" formControlName="firstCtrl" required>
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="email.hasError('required')">
+          A proper email is required
+        </mat-error>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Password" formControlName="firstCtrl" [type]="'password'" required>
+        <input matInput [placeholder]="'Password'" [formControlName]="'password'" [type]="'password'">
+        <mat-error *ngIf="password.hasError('required')">
+          A password is required
+        </mat-error>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
+    </mat-step>
+    <mat-step>
       <ng-template matStepLabel>Volunteer Info</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Zip Code" formControlName="secondCtrl" required>
+        <input matInput placeholder="State" [formControlName]="'state'" required>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Available Hours Per Week" formControlName="secondCtrl">
+        <input matInput placeholder="Available Hours Per Week" [formControlName]="'hours'">
       </mat-form-field><br>
       <mat-form-field>
-        <mat-select placeholder="Party Affiliation">
+        <mat-select placeholder="Party Affiliation" [formControlName]="'party'">
           <mat-option *ngFor="let party of parties" [value]="party.value">
             {{ party.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
       <mat-form-field>
-        <mat-select placeholder="Gov Level">
+        <mat-select placeholder="Gov Level" [formControlName]="'level'">
           <mat-option *ngFor="let level of levels" [value]="level.value">
             {{ level.viewValue }}
           </mat-option>
@@ -46,14 +56,15 @@
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Register</ng-template>
-    Are you ready to volunteer?
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Register</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Register</ng-template>
+      Are you ready to volunteer?
+      Agree to Terms and Conditions?
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="register()">Register</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>
