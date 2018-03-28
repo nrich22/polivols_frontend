@@ -7,11 +7,11 @@ import {Router} from '@angular/router';
  * @title Stepper overview
  */
 @Component({
-  selector: 'app-create-campaign-form',
-  templateUrl: './create-camp-form.component.html',
-  styleUrls: ['./create-camp-form.component.css']
+  selector: 'app-campaign-form',
+  templateUrl: './campaign-form.component.html',
+  styleUrls: ['./campaign-form.component.css']
 })
-export class CreateCampFormComponent implements OnInit {
+export class CampaignFormComponent implements OnInit {
   form: FormGroup;
   isLinear = false;
   parties = [
@@ -59,7 +59,9 @@ export class CreateCampFormComponent implements OnInit {
         Validators.min(1)
       ]),
       party: new FormControl('', []),
-      level: new FormControl('', [])
+      level: new FormControl('', []),
+      vols: new FormControl('', []),
+      link: new FormControl('', [])
     });
   }
 
@@ -101,4 +103,13 @@ export class CreateCampFormComponent implements OnInit {
   get level() {
     return this.form.get('level');
   }
+
+  get vols() {
+    return this.form.get('vols');
+  }
+
+  get link() {
+    return this.form.get('link');
+  }
 }
+

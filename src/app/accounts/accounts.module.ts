@@ -15,8 +15,8 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
-import {CreateCampComponent} from './components/pages/create-camp/create-camp.component';
-import {CreateCampFormComponent} from './components/forms/create-camp-form/create-camp-form.component';
+import { CampaignFormComponent } from './components/forms/campaign-form/campaign-form.component';
+import {CreateCampPageComponent} from './components/pages/create-camp-page/create-camp-page.component';
 
 @NgModule({
   imports: [
@@ -35,8 +35,8 @@ import {CreateCampFormComponent} from './components/forms/create-camp-form/creat
     LoginFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    CreateCampComponent,
-    CreateCampFormComponent
+    CreateCampPageComponent,
+    CampaignFormComponent
   ],
   providers: [
     CampaignService,
