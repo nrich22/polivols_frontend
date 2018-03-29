@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AccountsRoutingModule } from './accounts-routing.module';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
@@ -15,8 +16,7 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
-import { CampaignFormComponent } from './components/forms/campaign-form/campaign-form.component';
-import {CreateCampPageComponent} from './components/pages/create-camp-page/create-camp-page.component';
+
 
 @NgModule({
   imports: [
@@ -27,6 +27,7 @@ import {CreateCampPageComponent} from './components/pages/create-camp-page/creat
     MatButtonModule,
     MatSelectModule,
     MatStepperModule,
+    MatSlideToggleModule,
     AccountsRoutingModule,
     BaseModule
   ],
@@ -34,9 +35,7 @@ import {CreateCampPageComponent} from './components/pages/create-camp-page/creat
     LoginPageComponent,
     LoginFormComponent,
     RegisterPageComponent,
-    RegisterFormComponent,
-    CreateCampPageComponent,
-    CampaignFormComponent
+    RegisterFormComponent
   ],
   providers: [
     CampaignService,

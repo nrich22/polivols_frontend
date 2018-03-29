@@ -29,7 +29,7 @@ export class LoginFormComponent implements OnInit {
     this.authService
       .login(this.form.get('email').value, this.form.get('password').value)
       .subscribe(token => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/profile']);
       });
   }
 

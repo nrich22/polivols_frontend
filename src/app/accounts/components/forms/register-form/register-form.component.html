@@ -27,16 +27,26 @@
         </mat-error>
       </mat-form-field>
       <div>
+        <mat-slide-toggle (change)="changeType()" [color]="'primary'">Are you a campaign?</mat-slide-toggle>
+      </div>
+      <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Volunteer Info</ng-template>
+      <ng-template matStepLabel>
+        <span *ngIf="isVolunteer">Volunteer</span>
+        <span *ngIf="!isVolunteer">Campaign</span>
+        Info
+      </ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Zip Code" [formControlName]="'zip_code'" required>
+      </mat-form-field><br>
       <mat-form-field>
         <input matInput placeholder="State" [formControlName]="'state'" required>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Available Hours Per Week" [formControlName]="'hours'">
+        <input matInput placeholder="Available Hours Per Week" [formControlName]="'hrs_per_week'">
       </mat-form-field><br>
       <mat-form-field>
         <mat-select placeholder="Party Affiliation" [formControlName]="'party'">
@@ -51,7 +61,15 @@
             {{ level.viewValue }}
           </mat-option>
         </mat-select>
+      </mat-form-field><br>
+      <mat-form-field *ngIf="!isVolunteer" style="width: 40%">
+        <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'">
       </mat-form-field>
+      <br>
+      <mat-form-field *ngIf="!isVolunteer">
+        <input matInput [placeholder]="'Campaign Website Link'" [formControlName]="'link'">
+      </mat-form-field>
+      <br>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>

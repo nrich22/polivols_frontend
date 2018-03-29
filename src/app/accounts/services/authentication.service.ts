@@ -23,13 +23,18 @@ export class AuthenticationService {
       });
   }
 
-  register(data: any, volunteer: boolean = true) {
+  register(data, volunteer: boolean = true) {
     return this.http
       .post<any>(
         `${environment.baseUrl}/${volunteer ? 'volunteers' : 'campaigns'}/register/`,
         JSON.stringify(data),
         this.json_headers
       );
+  }
+
+  getUser(id) {
+    return this.http
+      .get(`${environment.baseUrl}//`);
   }
 
   logout() {
@@ -48,3 +53,5 @@ export class AuthenticationService {
     return {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   }
 }
+;
+;

@@ -14,6 +14,7 @@ import {Router} from '@angular/router';
 export class RegisterFormComponent implements OnInit {
   form: FormGroup;
   isLinear = false;
+  isVolunteer = true;
   parties = [
     {value: 'D', viewValue: 'Democratic'},
     {value: 'R', viewValue: 'Republican'},
@@ -50,24 +51,31 @@ export class RegisterFormComponent implements OnInit {
       password: new FormControl('', [
         Validators.required
       ]),
+      zip_code: new FormControl('', []),
       state: new FormControl('', [
         Validators.required
       ]),
-      hours: new FormControl('', [
+      hrs_per_week: new FormControl('', [
         Validators.required,
         Validators.max(50),
         Validators.min(1)
       ]),
       party: new FormControl('', []),
-      level: new FormControl('', [])
+      level: new FormControl('', []),
+      num_vols: new FormControl('', []),
+      link: new FormControl('', [])
     });
   }
 
   register() {
-    this.authService.register(this.form.getRawValue())
+    this.authService.register(this.form.getRawValue(), this.isVolunteer)
       .subscribe(result => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
       });
+  }
+
+  changeType() {
+    this.isVolunteer = !this.isVolunteer;
   }
 
   get first_name() {
@@ -86,12 +94,16 @@ export class RegisterFormComponent implements OnInit {
     return this.form.get('password');
   }
 
+  get zip_code() {
+    return this.form.get('zip_code');
+  }
+
   get state() {
     return this.form.get('state');
   }
 
-  get hours() {
-    return this.form.get('hours');
+  get hrs_per_week() {
+    return this.form.get('hrs_per_week');
   }
 
   get party() {
@@ -100,5 +112,13 @@ export class RegisterFormComponent implements OnInit {
 
   get level() {
     return this.form.get('level');
+  }
+
+  get vols() {
+    return this.form.get('num_vols');
+  }
+
+  get link() {
+    return this.form.get('link');
   }
 }
