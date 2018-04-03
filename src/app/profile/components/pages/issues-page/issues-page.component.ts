@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-not-found',
-  templateUrl: './not-found.component.html',
-  styleUrls: ['./not-found.component.css']
+  selector: 'app-issues-page',
+  templateUrl: './issues-page.component.html',
+  styleUrls: ['./issues-page.component.css']
 })
-export class NotFoundComponent implements OnInit {
+export class IssuesPageComponent implements OnInit {
   fullImagePath: string;
 
   constructor() {

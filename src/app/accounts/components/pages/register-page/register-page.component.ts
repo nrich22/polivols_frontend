@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
+  fullImagePath: string;
 
-  constructor() { }
+  constructor() {
+    this.fullImagePath = 'assets/logo1.png';
+  }
 
   ngOnInit() {
   }

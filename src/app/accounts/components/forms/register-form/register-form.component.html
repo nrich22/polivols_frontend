@@ -3,13 +3,13 @@
     <mat-step>
       <ng-template matStepLabel>Account Info</ng-template>
       <mat-form-field>
-        <input matInput [placeholder]="'First Name'" [formControlName]="'first_name'" required>
+        <input matInput [placeholder]="'First Name'" [formControlName]="'first_name'" required maxlength="20">
         <mat-error *ngIf="first_name.hasError('required')">
           A first name is required
         </mat-error>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Last Name" formControlName="last_name" required>
+        <input matInput placeholder="Last Name" formControlName="last_name" required required maxlength="20">
         <mat-error *ngIf="last_name.hasError('required')">
           A last name is required
         </mat-error>
@@ -21,13 +21,13 @@
         </mat-error>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput [placeholder]="'Password'" [formControlName]="'password'" [type]="'password'">
+        <input matInput [placeholder]="'Password'" [formControlName]="'password'" [type]="'password'" required maxlength="20">
         <mat-error *ngIf="password.hasError('required')">
           A password is required
         </mat-error>
       </mat-form-field>
       <div>
-        <mat-slide-toggle (change)="changeType()" [color]="'primary'">Are you a campaign?</mat-slide-toggle>
+        <mat-slide-toggle (change)="changeType()" [color]="'warn'">Are you a campaign?</mat-slide-toggle>
       </div>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -40,13 +40,17 @@
         Info
       </ng-template>
       <mat-form-field>
-        <input matInput placeholder="Zip Code" [formControlName]="'zip_code'" required>
+        <input matInput placeholder="Zip Code" [formControlName]="'zip_code'" maxlength="5" required>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="State" [formControlName]="'state'" required>
+        <mat-select placeholder="State" [formControlName]="'state'" required>
+          <mat-option *ngFor="let state of states" [value]="state.value">
+            {{ state.viewValue }}
+          </mat-option>
+        </mat-select>
       </mat-form-field><br>
       <mat-form-field>
-        <input matInput placeholder="Available Hours Per Week" [formControlName]="'hrs_per_week'">
+        <input matInput placeholder="Available Hours Per Week" [formControlName]="'hrs_per_week'" type="number">
       </mat-form-field><br>
       <mat-form-field>
         <mat-select placeholder="Party Affiliation" [formControlName]="'party'">
@@ -63,7 +67,7 @@
         </mat-select>
       </mat-form-field><br>
       <mat-form-field *ngIf="!isVolunteer" style="width: 40%">
-        <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'">
+        <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'" type="number">
       </mat-form-field>
       <br>
       <mat-form-field *ngIf="!isVolunteer">

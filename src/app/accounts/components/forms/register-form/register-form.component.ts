@@ -27,6 +27,11 @@ export class RegisterFormComponent implements OnInit {
     {value: 'S', viewValue: 'State'},
     {value: 'F', viewValue: 'Federal'}
   ];
+  states = [
+    {value: 'MA', viewValue: 'Massachusetts'},
+    {value: 'GA', viewValue: 'Georgia'},
+    {value: 'NY', viewValue: 'New York'}
+  ];
 
   constructor(
     private _formBuilder: FormBuilder,
