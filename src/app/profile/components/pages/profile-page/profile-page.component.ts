@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -8,11 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProfilePageComponent implements OnInit {
   fullImagePath: string;
 
-  constructor() {
+  constructor(private authService: AuthenticationService, private router: Router) {
     this.fullImagePath = 'assets/logo1.png';
   }
 
   ngOnInit() {
+  }
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['/welcome']);
   }
 
 }

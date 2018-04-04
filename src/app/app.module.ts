@@ -26,7 +26,9 @@ import {NotFoundComponent} from './base/components/pages/not-found/not-found.com
         tokenGetter: () => {
           return localStorage.getItem('token');
         },
-        whitelistedDomains: []
+        whitelistedDomains: ['localhost:8000'],
+        skipWhenExpired: true,
+        authScheme: 'JWT '
       }
     }),
     RouterModule.forRoot([

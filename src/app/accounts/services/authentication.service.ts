@@ -32,6 +32,15 @@ export class AuthenticationService {
       );
   }
 
+  currentUser() {
+    const token = this.jwtHelper.tokenGetter();
+    if (token) {
+      return this.jwtHelper.decodeToken(token);
+    } else {
+      return null;
+    }
+  }
+
   getUser(id) {
     return this.http
       .get(`${environment.baseUrl}//`);

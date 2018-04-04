@@ -1,10 +1,16 @@
 
 <div *ngFor="let issue of issues">
-  <mat-checkbox color="accent" selected="true">
+  <mat-checkbox color="warn" (click)="updateIssuesList(issue)">
     {{ issue }}
   </mat-checkbox>
   <br>
 </div>
-
+<br>
+<div class="button-row">
+  <a href="/profile">
+    <button mat-raised-button color="warn">Skip For Now</button>
+  </a>
+  <button mat-raised-button color="warn" (click)="updateIssues(selected_issues)">Continue</button>
+</div>
 
 

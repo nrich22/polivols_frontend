@@ -1,13 +1,7 @@
 <header>
-  <a href="/welcome">
-    <img [src]="fullImagePath" alt="Polivols Logo" height="50px" width="auto">
-  </a>
+  <img [src]="fullImagePath" [routerLink]="['/welcome']" alt="Polivols Logo" height="50px" width="auto">
 </header>
 
 <h3>Check off the political issues most important to you </h3>
 <app-issues-form></app-issues-form>
-<br>
-<div class="button-row">
-  <button mat-raised-button color="warn">Skip For Now</button>
-  <button mat-raised-button color="warn">Continue</button>
-</div>
+

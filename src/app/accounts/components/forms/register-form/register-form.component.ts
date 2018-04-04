@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {Router} from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 /**
  * @title Stepper overview
@@ -74,8 +75,9 @@ export class RegisterFormComponent implements OnInit {
 
   register() {
     this.authService.register(this.form.getRawValue(), this.isVolunteer)
+      .switchMap(result => this.authService.login(this.form.get('email').value, this.form.get('password').value))
       .subscribe(result => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/issues']);
       });
   }
 
