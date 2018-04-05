@@ -10,6 +10,7 @@ import {AuthenticationService} from './accounts/services/authentication.service'
 import {AccountsModule} from './accounts/accounts.module';
 import {RouterModule} from '@angular/router';
 import {NotFoundComponent} from './base/components/pages/not-found/not-found.component';
+import {MatchesModule} from './matches/matches.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {NotFoundComponent} from './base/components/pages/not-found/not-found.com
     BrowserAnimationsModule,
     HttpClientModule,
     AccountsModule,
+    MatchesModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
