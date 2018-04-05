@@ -1,44 +1,55 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {Router} from '@angular/router';
 import {MatchesService} from '../../../services/matches.service';
-import {element} from 'protractor';
+
+export interface Element {
+  id: number;
+  name: string;
+  zip_code: string;
+  state: string;
+  issues: string;
+  link: string;
+  num_vols: number;
+  hours: number;
+}
 
 @Component({
   selector: 'app-find-matches-page',
   templateUrl: './find-matches-page.component.html',
   styleUrls: ['./find-matches-page.component.css']
 })
-export class FindMatchesPageComponent implements AfterViewInit {
-  elements;
-  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'num_vols', 'issues'];
-  dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+
+export class FindMatchesPageComponent implements AfterViewInit, OnInit {
+  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'num_vols', 'issues', 'link', 'interested'];
+  dataSource: MatTableDataSource<Element>;
   constructor(private matchService: MatchesService, private router: Router) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  ngOnInit() {
+    this.dataSource = new MatTableDataSource([]);
+    this.matchService.getPotentialMatches()
+      .subscribe((matches: any[]) => {
+        const elements: Element[] = [];
+        for (const match of matches) {
+          elements.push({
+            id: match.id,
+            name: `${match.first_name} ${match.last_name}`,
+            zip_code: match.zip_code,
+            state: match.state,
+            issues: match.issues,
+            link: match.link,
+            num_vols: match.num_vols,
+            hours: match.hrs_per_week
+          });
+        }
+        this.dataSource.data = elements;
+      });
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  getElementData() {
-    this.matchService.getPotentialMatches()
-      .subscribe((data: any[]) => this.elements =
-        data.map(elements =>
-          [elements.first_name + ' ' + elements.last_name, elements.zip_code, elements.state, elements.num_vols, elements.hrs_per_week]));
-    console.log(this.elements);
+  createMatch(element) {
+    console.log(element.id);
+    this.matchService.createMatch(element.id).subscribe();
   }
 }
-
-export interface Element {
-  name: string;
-  zip_code: string;
-  state: string;
-  issues: string;
-  num_vols: number;
-  hours: number;
-}
-
-const ELEMENT_DATA: Element[] = [
-  {name: 'Hilary Clinton', zip_code: '02339', state: 'MA', issues: 'Education, LGBT Rights', num_vols: 100, hours: 15},
-  {name: 'Jeb Bush', zip_code: '02339', state: 'MA', issues: 'Tax Reform, Infrastructure', num_vols: 50, hours: 20},
-  {name: 'Bernie Sanders', zip_code: '02339', state: 'MA', issues: 'Education, Jobs and the Economy', num_vols: 200, hours: 10},
-  {name: 'Donal Trump', zip_code: '02339', state: 'MA', issues: 'Tax Reform, Immigration', num_vols: 50, hours: 15}
-];

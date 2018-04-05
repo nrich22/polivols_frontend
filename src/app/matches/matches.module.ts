@@ -4,17 +4,19 @@ import { CommonModule } from '@angular/common';
 import { MatchesRoutingModule } from './matches-routing.module';
 import { FindMatchesPageComponent } from './components/pages/find-matches-page/find-matches-page.component';
 import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material';
+import {MatButtonModule, MatPaginatorModule} from '@angular/material';
 import {MatchesService} from './services/matches.service';
+import { MatchesPageComponent } from './components/pages/matches-page/matches-page.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MatchesRoutingModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
-  declarations: [FindMatchesPageComponent],
+  declarations: [FindMatchesPageComponent, MatchesPageComponent],
   providers: [
     MatchesService
   ]

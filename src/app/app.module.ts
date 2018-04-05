@@ -11,6 +11,7 @@ import {AccountsModule} from './accounts/accounts.module';
 import {RouterModule} from '@angular/router';
 import {NotFoundComponent} from './base/components/pages/not-found/not-found.component';
 import {MatchesModule} from './matches/matches.module';
+import {AuthenticationInterceptorService} from './base/interceptors/authentication-interceptor.service';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatchesModule} from './matches/matches.module';
     ])
   ],
   providers: [
-    AuthenticationService
+    AuthenticationService,
+    AuthenticationInterceptorService
   ],
   bootstrap: [AppComponent]
 })

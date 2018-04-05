@@ -1,0 +1,43 @@
+@import "~@angular/material/theming";
+
+$poli-palette: (
+  50 : #ffe1e1,
+  100 : #feb3b3,
+  200 : #fd8181,
+  300 : #fc4e4e,
+  400 : #fc2828,
+  500 : #fb0202,
+  600 : #fa0202,
+  700 : #fa0101,
+  800 : #f90101,
+  900 : #f80101,
+  A100 : #ffffff,
+  A200 : #ffebeb,
+  A400 : #ffb8b8,
+  A700 : #ff9f9f,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+@include mat-core();
+
+$polivol-primary: mat-palette($poli-palette);
+$polivol-accent: mat-palette($poli-palette, A200, A100, A400);
+
+$poli-theme: mat-light-theme($polivol-primary, $polivol-accent);
+
+@include angular-material-theme($poli-theme);

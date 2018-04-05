@@ -13,15 +13,17 @@ export class MatchesService extends DataService {
   }
 
   getPotentialMatches() {
-    return this.http
-      .get(`${environment.baseUrl}/potential/matches/?volunteer=1`);
-  }
-  createMatch(issues) {
     const user = this.authService.currentUser();
     return this.http
-      .patch<any>(
-        `${environment.baseUrl}/issues/update/${user.user_id}/`,
-        JSON.stringify({user: 5, issues: issues}),
+      .get(`${environment.baseUrl}/potential/matches/?volunteer=${user.user_id}`);
+  }
+  createMatch(match_id) {
+    const user = this.authService.currentUser();
+    console.log('camp: ' + match_id);
+    return this.http
+      .post<any>(
+        `${environment.baseUrl}/matches/`,
+        JSON.stringify({volunteer: user.user_id, campaign: match_id}),
         this.json_headers
       );
   }
