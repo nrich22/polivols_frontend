@@ -3,12 +3,19 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class AuthenticationService {
-
+  jwtHelper: JwtHelperService;
   private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient) {
+    this.jwtHelper = new JwtHelperService({});
+    this.jwtHelper.tokenGetter = () => {
+      return localStorage.getItem('token');
+    };
+  }
 
   login(email: string, password: string) {
     return this.http
@@ -30,6 +37,21 @@ export class AuthenticationService {
         JSON.stringify(data),
         this.json_headers
       );
+  }
+
+  refreshToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.http.post(
+        `${environment.baseUrl}/token/refresh/`,
+        JSON.stringify({token: token}),
+        this.getHeaders()
+      ).map((data: any) => {
+        localStorage.setItem('token', data.token);
+        return data.token;
+      });
+    }
+    return Observable.empty();
   }
 
   currentUser() {

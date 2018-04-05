@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatchesRoutingModule } from './matches-routing.module';
 import { FindMatchesPageComponent } from './components/pages/find-matches-page/find-matches-page.component';
 import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule, MatPaginatorModule} from '@angular/material';
+import {MatButtonModule, MatPaginatorModule, MatTooltipModule} from '@angular/material';
 import {MatchesService} from './services/matches.service';
 import { MatchesPageComponent } from './components/pages/matches-page/matches-page.component';
 
@@ -14,7 +14,7 @@ import { MatchesPageComponent } from './components/pages/matches-page/matches-pa
     MatchesRoutingModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   declarations: [FindMatchesPageComponent, MatchesPageComponent],
   providers: [

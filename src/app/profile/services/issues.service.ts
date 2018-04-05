@@ -9,7 +9,7 @@ import {AuthenticationService} from '../../accounts/services/authentication.serv
 export class IssuesService extends DataService {
 
   private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-  constructor(http: HttpClient, private jwtHelper: JwtHelperService, private authService: AuthenticationService) {
+  constructor(http: HttpClient, private authService: AuthenticationService) {
     super(http, 'issues/');
   }
 

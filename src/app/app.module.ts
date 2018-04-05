@@ -24,16 +24,6 @@ import {AuthenticationInterceptorService} from './base/interceptors/authenticati
     HttpClientModule,
     AccountsModule,
     MatchesModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return localStorage.getItem('token');
-        },
-        whitelistedDomains: ['localhost:8000'],
-        skipWhenExpired: true,
-        authScheme: 'JWT '
-      }
-    }),
     RouterModule.forRoot([
       {
         path: '**',

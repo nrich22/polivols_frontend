@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../../environments/environment';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {JwtHelperService} from '@auth0/angular-jwt';
+import {HttpClient} from '@angular/common/http';
 import {DataService} from '../../base/services/data.service';
 import {AuthenticationService} from '../../accounts/services/authentication.service';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class MatchesService extends DataService {
-  private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
-  constructor(http: HttpClient, private jwtHelper: JwtHelperService, private authService: AuthenticationService) {
+  constructor(http: HttpClient, private authService: AuthenticationService) {
     super(http, 'issues/');
   }
 
@@ -24,7 +23,7 @@ export class MatchesService extends DataService {
       .post<any>(
         `${environment.baseUrl}/matches/`,
         JSON.stringify({volunteer: user.user_id, campaign: match_id}),
-        this.json_headers
+        this.getJsonHeaders()
       );
   }
 

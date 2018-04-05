@@ -53,9 +53,9 @@
     <!-- Interested Column -->
     <ng-container matColumnDef="interested">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <button mat-raised-button (click)="createMatch(element)" color="primary">Volunteer</button>
-      </mat-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="createMatch(element);" onclick="this.disabled=true;" color="primary">Volunteer</button>
+        </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -67,4 +67,8 @@
                  [pageSizeOptions]="[5, 10, 20]"
                  [showFirstLastButtons]="true">
   </mat-paginator>
+</div>
+<br>
+<div class="button-row">
+  <button mat-raised-button [routerLink]="['/profile']" color="primary">Done</button>
 </div>
