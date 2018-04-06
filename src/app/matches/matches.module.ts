@@ -4,9 +4,9 @@ import { CommonModule } from '@angular/common';
 import { MatchesRoutingModule } from './matches-routing.module';
 import { FindMatchesPageComponent } from './components/pages/find-matches-page/find-matches-page.component';
 import {MatTableModule} from '@angular/material/table';
-import {MatButtonModule, MatPaginatorModule, MatTooltipModule} from '@angular/material';
+import {MatButtonModule, MatPaginatorModule, MatProgressBarModule, MatTooltipModule} from '@angular/material';
 import {MatchesService} from './services/matches.service';
-import { MatchesPageComponent } from './components/pages/matches-page/matches-page.component';
+import { CampMatchesPageComponent } from './components/pages/camp-matches-page/camp-matches-page.component';
 
 @NgModule({
   imports: [
@@ -15,8 +15,9 @@ import { MatchesPageComponent } from './components/pages/matches-page/matches-pa
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatProgressBarModule
   ],
-  declarations: [FindMatchesPageComponent, MatchesPageComponent],
+  declarations: [FindMatchesPageComponent, CampMatchesPageComponent],
   providers: [
     MatchesService
   ]

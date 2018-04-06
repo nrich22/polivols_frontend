@@ -18,7 +18,6 @@ export class MatchesService extends DataService {
   }
   createMatch(match_id) {
     const user = this.authService.currentUser();
-    console.log('camp: ' + match_id);
     return this.http
       .post<any>(
         `${environment.baseUrl}/matches/`,
@@ -26,5 +25,9 @@ export class MatchesService extends DataService {
         this.getJsonHeaders()
       );
   }
-
+  getCampMatches() {
+    const user = this.authService.currentUser();
+    return this.http
+      .get(`${environment.baseUrl}/matches/?campaign=${user.user_id}`);
+  }
 }

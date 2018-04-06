@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>User Profile Page</title>
+</head>
+
+<body>
+<header>
+  <img [src]="fullImagePath" [routerLink]="['/welcome']" alt="Polivols Logo" height="65px" width="auto">
+
+  <h2>Campaign Profile</h2>
+</header>
+<div class="button-row">
+  <button mat-raised-button [routerLink]="['/camp_matches']" color="warn">View Volunteers</button>
+</div>
+<br>
+<div class="button-row">
+  <button mat-raised-button [routerLink]="['/issues']" color="warn">Update Issues</button>
+</div>
+<br>
+<div class="button-row">
+  <button mat-raised-button color="warn" (click)="logOut()">Log Out</button>
+</div>
+
+<br>
+
+</body>
+
+</html>
+

@@ -5,6 +5,7 @@ import {RegisterPageComponent} from './components/pages/register-page/register-p
 import {ProfilePageComponent} from '../profile/components/pages/profile-page/profile-page.component';
 import {ProfileModule} from '../profile/profile.module';
 import {IssuesPageComponent} from '../profile/components/pages/issues-page/issues-page.component';
+import {CampProfilePageComponent} from '../profile/components/pages/camp-profile-page/camp-profile-page.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePageComponent
+  },
+  {
+    path: 'camp_profile',
+    component: CampProfilePageComponent
   },
   {
     path: 'issues',

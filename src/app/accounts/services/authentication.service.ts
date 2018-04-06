@@ -39,6 +39,12 @@ export class AuthenticationService {
       );
   }
 
+  isCampaign(email) {
+    return this.http
+      .get<any>(
+        `${environment.baseUrl}/is_campaign/${email}/`);
+  }
+
   refreshToken() {
     const token = localStorage.getItem('token');
     if (token) {
@@ -48,10 +54,10 @@ export class AuthenticationService {
         this.getHeaders()
       ).map((data: any) => {
         localStorage.setItem('token', data.token);
-        return data.token;
+        return Observable.of(data.token);
       });
     }
-    return Observable.empty();
+    return Observable.of(null);
   }
 
   currentUser() {

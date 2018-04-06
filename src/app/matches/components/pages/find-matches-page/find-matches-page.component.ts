@@ -49,7 +49,6 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
   }
   createMatch(element) {
-    console.log(element.id);
     this.matchService.createMatch(element.id).subscribe();
   }
 }

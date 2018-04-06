@@ -20,16 +20,13 @@ export class AuthenticationInterceptorService implements HttpInterceptor {
           if (err.status === 401) {
             // Refresh the token, and try again
             return this.authService.refreshToken()
-              .switchMap(result => {
-                return next.handle(this.getAuthRequest(req))
-                  .catch(err2 => {
-                    // If we end up here, something else happened, so send them back to login
-                    this.router.navigate(['/login']);
-                    return next.handle(req);
-                  });
+              .switchMap(token => {
+                return next.handle(this.getAuthRequest(req));
               });
           }
+          return next.handle(req);
         });
+
     }
 
     return next.handle(req);

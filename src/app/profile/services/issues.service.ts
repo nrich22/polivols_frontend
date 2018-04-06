@@ -7,8 +7,6 @@ import {AuthenticationService} from '../../accounts/services/authentication.serv
 
 @Injectable()
 export class IssuesService extends DataService {
-
-  private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   constructor(http: HttpClient, private authService: AuthenticationService) {
     super(http, 'issues/');
   }
@@ -22,7 +20,7 @@ export class IssuesService extends DataService {
     return this.http
       .patch<any>(
         `${environment.baseUrl}/issues/update/${user.user_id}/`,
-        JSON.stringify({user: 5, issues: issues}),
+        JSON.stringify({user: user.user_id, issues: issues}),
         this.getHeaders()
       );
   }

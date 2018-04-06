@@ -10,6 +10,7 @@ import {AuthenticationService} from '../../../services/authentication.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  isCampaign;
   form: FormGroup;
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -29,7 +30,11 @@ export class LoginFormComponent implements OnInit {
     this.authService
       .login(this.form.get('email').value, this.form.get('password').value)
       .subscribe(token => {
-        this.router.navigate(['/profile']);
+        if (this.authService.currentUser().is_campaign) {
+          this.router.navigate(['/camp_profile']);
+        } else {
+          this.router.navigate(['/profile']);
+        }
       });
   }
 
