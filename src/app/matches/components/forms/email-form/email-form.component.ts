@@ -22,7 +22,7 @@ export class EmailFormComponent implements OnInit {
     });
   }
   sendEmail() {
-    this.matchService.sendEmail(this.form.get('subject').value, this.form.get('message').value, ['nar5501@rit.edu'])
+    this.matchService.sendEmail(this.form.get('subject').value, this.form.get('message').value)
       .subscribe(email => {
         this.dialogRef.close();
       });
