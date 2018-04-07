@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IssuesService} from '../../../services/issues.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 
 @Component({
   selector: 'app-issues-form',
@@ -13,6 +14,7 @@ export class IssuesFormComponent implements OnInit {
   selected_issues = [];
 
   constructor(
+    private authService: AuthenticationService,
     private issueService: IssuesService,
     private router: Router ) {}
 
@@ -30,7 +32,18 @@ export class IssuesFormComponent implements OnInit {
   }
   updateIssues() {
     this.issueService.updateIssues(this.selected_issues).subscribe(result => {
-      this.router.navigate(['/profile']);
+      if (this.authService.currentUser().is_campaign) {
+        this.router.navigate(['/camp_profile']);
+      } else {
+        this.router.navigate(['/profile']);
+      }
     });
+  }
+  skipForNow() {
+    if (this.authService.currentUser().is_campaign) {
+      this.router.navigate(['/camp_profile']);
+    } else {
+      this.router.navigate(['/profile']);
+    }
   }
 }

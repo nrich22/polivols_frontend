@@ -30,4 +30,13 @@ export class MatchesService extends DataService {
     return this.http
       .get(`${environment.baseUrl}/matches/?campaign=${user.user_id}`);
   }
+  sendEmail(subject, message, recipient_list) {
+    const user = this.authService.currentUser();
+    return this.http
+      .post<any>(
+        `${environment.baseUrl}/email/`,
+        JSON.stringify({subject: subject, message: message, recipient_list: recipient_list}),
+        this.getJsonHeaders()
+      );
+  }
 }

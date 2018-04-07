@@ -9,6 +9,9 @@
   <mat-progress-bar style="width:30%;" mode="determinate" value="10"></mat-progress-bar>
   {{currNumVols}}/{{numDesiredVols}}
 </div>
+<div class="button-row">
+  <button mat-raised-button (click)="openDialog()" color="primary">Email All</button>
+</div>
 
 <br>
 <div class="example-container mat-elevation-z8" style="width: 70%">
@@ -67,4 +70,8 @@
                  [pageSizeOptions]="[5, 10, 20]"
                  [showFirstLastButtons]="true">
   </mat-paginator>
+</div>
+<br>
+<div class="button-row">
+  <button mat-raised-button (click)="Done()" color="primary">Done</button>
 </div>

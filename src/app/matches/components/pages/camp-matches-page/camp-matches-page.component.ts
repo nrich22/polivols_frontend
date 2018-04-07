@@ -1,7 +1,9 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource, MatProgressBar} from '@angular/material';
+import {MatPaginator, MatTableDataSource, MatProgressBar, MatDialog} from '@angular/material';
 import {MatchesService} from '../../../services/matches.service';
 import {Router} from '@angular/router';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
+import {EmailFormComponent} from '../../forms/email-form/email-form.component';
 
 export interface VolElement {
   id: number;
@@ -19,11 +21,18 @@ export interface VolElement {
   styleUrls: ['./camp-matches-page.component.css']
 })
 export class CampMatchesPageComponent implements OnInit, AfterViewInit {
+  subject: string;
+  message: string;
+  recipient_list;
   currNumVols;
   numDesiredVols;
   displayedColumns = ['name', 'zip_code', 'state', 'hours', 'party', 'issues'];
   dataSource: MatTableDataSource<VolElement>;
-  constructor(private matchService: MatchesService, private router: Router) {}
+  constructor(
+    private authService: AuthenticationService,
+    private matchService: MatchesService,
+    private router: Router,
+    public dialog: MatDialog) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {
     this.dataSource = new MatTableDataSource([]);
@@ -50,5 +59,23 @@ export class CampMatchesPageComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+  Done() {
+    if (this.authService.currentUser().is_campaign) {
+      this.router.navigate(['/camp_profile']);
+    } else {
+      this.router.navigate(['/profile']);
+    }
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(EmailFormComponent, {
+      width: '500px',
+      data: { subject: this.subject, message: this.message, recipient_list: this.recipient_list }
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+      // console.log('The dialog was closed');
+      // this.animal = result;
+    // });
   }
 }
