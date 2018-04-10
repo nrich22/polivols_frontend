@@ -1,14 +1,25 @@
-
-<div *ngFor="let issue of issues">
-  <mat-checkbox color="primary" (click)="updateIssuesList(issue)">
-    {{ issue }}
-  </mat-checkbox>
+<mat-card class="issues-card">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-content-center">
+        <img [src]="fullImagePath" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
+      </div>
+      <h4>Check off the political issues most important to you </h4>
+        <div *ngFor="let issue of issues">
+          <div class="row justify-content-start">
+          <mat-checkbox color="primary" (click)="updateIssuesList(issue)">
+            {{ issue }}
+          </mat-checkbox>
+          <br>
+        </div>
+      </div>
+    </div>
   <br>
-</div>
-<br>
-<div class="button-row">
-  <button mat-raised-button (click)="skipForNow()" color="primary">Skip For Now</button>
-  <button mat-raised-button color="primary" (click)="updateIssues(selected_issues)">Continue</button>
-</div>
+  <div class="container-fluid">
+    <div class="row justify-content-between">
+      <button mat-raised-button (click)="skipForNow()" color="primary">Skip For Now</button>
+      <button mat-raised-button color="primary" (click)="updateIssues(selected_issues)">Continue</button>
+    </div>
+  </div>
+</mat-card>
 
 

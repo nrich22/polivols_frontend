@@ -9,6 +9,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class AuthenticationService {
   jwtHelper: JwtHelperService;
+  isVolunteer: boolean;
   private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   constructor(private http: HttpClient) {
     this.jwtHelper = new JwtHelperService({});
@@ -39,10 +40,8 @@ export class AuthenticationService {
       );
   }
 
-  isCampaign(email) {
-    return this.http
-      .get<any>(
-        `${environment.baseUrl}/is_campaign/${email}/`);
+  setIsVolunteer(isVolunteer: boolean) {
+    this.isVolunteer = isVolunteer;
   }
 
   refreshToken() {

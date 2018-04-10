@@ -1,21 +1,30 @@
-<form [formGroup]="form">
-  <div class="container">
-    <div class="col-md-12">
-      <mat-form-field>
-        <input matInput [placeholder]="'Email'" [required]="true" [formControlName]="'email'">
-        <mat-error *ngIf="email.hasError('email')">
-          You must include a valid email.
-        </mat-error>
-      </mat-form-field>
+<mat-card class="login-card">
+  <form [formGroup]="form">
+    <div class="container-fluid">
+      <div class="row justify-content-center align-content-center">
+        <img [src]="fullImagePath" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
+      </div>
+      <br><br>
+      <div class="row justify-content-center align-content-center">
+        <mat-form-field>
+          <input matInput [placeholder]="'Email'" [required]="true" [formControlName]="'email'">
+          <mat-error *ngIf="email.hasError('email')">
+            You must include a valid email.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [placeholder]="'Password'" [required]="true" [type]="'password'" [formControlName]="'password'">
+          <mat-error *ngIf="password.hasError('required')">
+            You must include a password!
+          </mat-error>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-md-12">
-      <mat-form-field>
-        <input matInput [placeholder]="'Password'" [required]="true" [type]="'password'" [formControlName]="'password'">
-        <mat-error *ngIf="password.hasError('required')">
-          You must include a password!
-        </mat-error>
-      </mat-form-field>
+    <br>
+    <div class="container-fluid">
+      <div class="row justify-content-end">
+        <button mat-raised-button [color]="'primary'" (click)="submit()" [disabled]="!form.valid">Login</button>
+      </div>
     </div>
-  </div>
-  <button mat-raised-button [color]="'primary'" (click)="submit()" [disabled]="!form.valid">Login</button>
-</form>
+  </form>
+</mat-card>

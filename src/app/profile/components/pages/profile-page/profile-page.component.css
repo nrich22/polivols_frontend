@@ -1,0 +1,29 @@
+.page-header {
+  background-color: white;
+}
+.profile-body {
+  width: 70%;
+}
+.header-card {
+  height: 70px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.logout-button {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.page-body {
+  background-color: #0e4f82;
+}
+.profile-container {
+  height: 100vh;
+  background-color: #0e4f82;
+}
+.logo {
+  margin-left: 10px;
+}
+.welcome-header {
+  color: white;
+  margin-left: 10px;
+}

@@ -1,31 +1,37 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>User Profile Page</title>
-</head>
-
-<body>
-<header>
-  <img [src]="fullImagePath" [routerLink]="['/welcome']" alt="Polivols Logo" height="65px" width="auto">
-
-  <h2>Volunteer Profile</h2>
-</header>
-<div class="button-row">
-  <button mat-raised-button [routerLink]="['/find_matches']" color="primary">Find Campaigns Near You</button>
-</div>
+<div class="profile-container">
+  <mat-card class="header-card">
+    <div class="row justify-content-between">
+      <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
+      <div>
+        <button class="logout-button" mat-raised-button color="primary" (click)="logOut()">Log Out</button>
+      </div>
+    </div>
+  </mat-card>
 <br>
-<div class="button-row">
-  <button mat-raised-button [routerLink]="['/issues']" color="primary">Update Issues</button>
+<h3 class="welcome-header">Welcome To Your Volunteer Profile</h3>
+
+<div class="row justify-content-center">
+  <mat-card class="profile-body">
+    <div class="row justify-content-center">
+      <mat-tab-group>
+        <mat-tab label="My Campaigns">Content 2</mat-tab>
+        <mat-tab label="Find Campaigns">Content 1</mat-tab>
+        <mat-tab label="Update Issues">Content 2</mat-tab>
+        <mat-tab label="Edit Profile">Content 2</mat-tab>
+        <mat-tab label="Settings">Content 2</mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-card>
 </div>
-<br>
-<div class="button-row">
-  <button mat-raised-button color="primary" (click)="logOut()">Log Out</button>
+
+  <div class="button-row">
+    <button mat-raised-button [routerLink]="['/find_matches']" color="primary">Find Campaigns Near You</button>
+  </div>
+  <br>
+  <div class="button-row">
+    <button mat-raised-button [routerLink]="['/issues']" color="primary">Update Issues</button>
+  </div>
+  <br>
 </div>
 
-<br>
-
-</body>
-
-</html>
 

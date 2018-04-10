@@ -5,7 +5,10 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { IssuesPageComponent } from './components/pages/issues-page/issues-page.component';
 import { IssuesFormComponent } from './components/forms/issues-form/issues-form.component';
-import {MatCheckboxModule, MatInputModule, MatButtonModule} from '@angular/material';
+import {
+  MatCheckboxModule, MatInputModule, MatButtonModule, MatCardModule, MatTabsModule,
+  MatIconModule
+} from '@angular/material';
 import { CampProfilePageComponent } from './components/pages/camp-profile-page/camp-profile-page.component';
 
 @NgModule({
@@ -13,6 +16,9 @@ import { CampProfilePageComponent } from './components/pages/camp-profile-page/c
     CommonModule,
     ProfileRoutingModule,
     MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule,
+    MatIconModule,
     MatInputModule,
     MatButtonModule
   ],

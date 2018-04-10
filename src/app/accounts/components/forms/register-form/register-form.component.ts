@@ -13,6 +13,7 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterFormComponent implements OnInit {
+  fullImagePath;
   form: FormGroup;
   isLinear = false;
   isVolunteer = true;
@@ -38,9 +39,12 @@ export class RegisterFormComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private authService: AuthenticationService,
     private router: Router
-  ) { }
+  ) {
+    this.fullImagePath = 'assets/logo1.png';
+  }
 
   ngOnInit() {
+    this.isVolunteer = this.authService.isVolunteer;
     this.form = this._formBuilder.group({
       first_name: new FormControl('', [
         Validators.required,
@@ -61,11 +65,6 @@ export class RegisterFormComponent implements OnInit {
       state: new FormControl('', [
         Validators.required
       ]),
-      hrs_per_week: new FormControl('', [
-        Validators.required,
-        Validators.max(50),
-        Validators.min(1)
-      ]),
       party: new FormControl('', []),
       level: new FormControl('', []),
       num_vols: new FormControl('', []),
@@ -79,10 +78,6 @@ export class RegisterFormComponent implements OnInit {
       .subscribe(result => {
         this.router.navigate(['/issues']);
       });
-  }
-
-  changeType() {
-    this.isVolunteer = !this.isVolunteer;
   }
 
   get first_name() {
@@ -107,10 +102,6 @@ export class RegisterFormComponent implements OnInit {
 
   get state() {
     return this.form.get('state');
-  }
-
-  get hrs_per_week() {
-    return this.form.get('hrs_per_week');
   }
 
   get party() {

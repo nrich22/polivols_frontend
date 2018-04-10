@@ -12,11 +12,14 @@ import {AuthenticationService} from '../../../../accounts/services/authenticatio
 export class IssuesFormComponent implements OnInit {
   issues;
   selected_issues = [];
+  fullImagePath;
 
   constructor(
     private authService: AuthenticationService,
     private issueService: IssuesService,
-    private router: Router ) {}
+    private router: Router ) {
+    this.fullImagePath = 'assets/logo1.png';
+  }
 
   ngOnInit() {
     this.issueService.getIssues().subscribe((data: any[]) => this.issues = data.map(issue => issue.title));

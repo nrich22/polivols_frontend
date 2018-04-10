@@ -10,9 +10,11 @@ import {AuthenticationService} from '../../../services/authentication.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  isCampaign;
+  fullImagePath;
   form: FormGroup;
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router) {
+    this.fullImagePath = 'assets/logo1.png';
+  }
 
   ngOnInit() {
     this.form = new FormGroup({

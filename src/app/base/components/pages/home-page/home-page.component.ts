@@ -9,11 +9,15 @@ import {AuthenticationService} from '../../../../accounts/services/authenticatio
 export class HomePageComponent implements OnInit {
   fullImagePath: string;
 
-  constructor(authService: AuthenticationService) {
+  constructor(
+    private authService: AuthenticationService) {
     this.fullImagePath = 'assets/logo1.png';
   }
 
   ngOnInit() {
+  }
+  isVolunteer(isVolunteer: boolean){
+    this.authService.setIsVolunteer(isVolunteer);
   }
 
 }
