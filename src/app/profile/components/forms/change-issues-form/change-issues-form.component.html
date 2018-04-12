@@ -1,0 +1,19 @@
+<h4>Check off the political issues most important to you.</h4>
+<mat-card class="issues-card">
+  <div class="container-fluid">
+    <div *ngFor="let issue of issues">
+      <div class="row justify-content-start">
+        <mat-checkbox color="primary" (click)="updateIssuesList(issue)">
+          {{ issue }}
+        </mat-checkbox>
+        <br>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <div class="row justify-content-end">
+      <button mat-raised-button color="primary" (click)="updateIssues(selected_issues)">Save</button>
+    </div>
+  </div>
+</mat-card>

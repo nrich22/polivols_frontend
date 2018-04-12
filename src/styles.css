@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "styles/bootstrap-grid.min.css";
 
+@font-face {
+  font-family: "PoliVol Font";
+  src: url("assets/MetronBlackSSK.woff");
+}
+
 body {
   padding: 0;
   margin: 0;

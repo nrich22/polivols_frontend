@@ -1,6 +1,8 @@
+<div class="home-container">
 <div class="row justify-content-center align-items-center">
+  <br>
   <div>
-    <img class="logo" [src]="'assets/logo1.png'" alt="Polivols Logo" height="150px" width="auto">
+    <img class="logo" [src]="'assets/polivols-web-logo.png'" alt="Polivols Logo" height="225px" width="auto">
   </div>
 </div>
 
@@ -10,27 +12,39 @@
 
   <div class="row justify-content-center align-items-center">
       <button class="register-button" mat-raised-button (click)="isVolunteer(true)" [routerLink]="['/register']" color="accent">
-        <p class="button-text red">I am a </p>
-        <h2 class="button-title">Volunteer</h2>
-        <p class="button-text red">Looking For A Campaign</p>
+        <div class="button-text-container">
+          <p class="button-text red">I AM A</p>
+          <h2 class="button-title">VOLUNTEER</h2>
+          <p class="button-text red">LOOKING FOR A CAMPAIGN</p>
+        </div>
       </button>
       <button class="register-button" mat-raised-button (click)="isVolunteer(false)" [routerLink]="['/register']" color="primary">
-        <p class="button-text blue">I am a </p>
-        <h2 class="button-title">Campaign</h2>
-        <p class="button-text blue">Looking For Volunteers</p>
+        <div class="button-text-container">
+          <p class="button-text blue">I AM A</p>
+          <h2 class="button-title">CAMPAIGN</h2>
+          <p class="button-text blue">LOOKING FOR VOLUNTEERS</p>
+        </div>
       </button>
   </div>
-
+<br>
 <br>
   <div class="row justify-content-center align-items-center">
-    <p>PoliVols Snippet</p>
-  </div>
-
-<br>
-
-  <div class="row justify-content-center align-items-center">
-    <p class="small-text">Already Have an Account?</p>
-    <div>
-      <button mat-raised-button [routerLink]="['/login']" color="primary">Login</button>
+    <div class="home-bottom-container">
+      <div class="row justify-content-center align-items-center">
+        <div class="home-blurb">
+          <p class="blurb-text">PoliVols is a matching app, through which prospective political volunteers can connect</p>
+          <p class="blurb-text"> with political campaigns in their area, engaging in and fighting for the issues they care most about.</p>
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <p class="blurb-text">Already Have an Account?</p>
+      </div>
+      <div class="row justify-content-center align-items-center">
+        <button mat-raised-button [routerLink]="['/login']" color="primary">Login</button>
+      </div>
     </div>
   </div>
+<br>
+
+
+</div>

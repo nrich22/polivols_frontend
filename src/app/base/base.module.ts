@@ -5,14 +5,15 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BaseRoutingModule } from './base-routing.module';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import {HomePageComponent} from './components/pages/home-page/home-page.component';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatCardModule} from '@angular/material';
 import {AuthenticationInterceptorService} from './interceptors/authentication-interceptor.service';
 
 @NgModule({
   imports: [
     CommonModule,
     BaseRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   declarations: [
     NotFoundComponent,

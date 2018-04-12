@@ -8,30 +8,28 @@
     </div>
   </mat-card>
 <br>
-<h3 class="welcome-header">Welcome To Your Volunteer Profile</h3>
-
 <div class="row justify-content-center">
   <mat-card class="profile-body">
     <div class="row justify-content-center">
       <mat-tab-group>
-        <mat-tab label="My Campaigns">Content 2</mat-tab>
-        <mat-tab label="Find Campaigns">Content 1</mat-tab>
-        <mat-tab label="Update Issues">Content 2</mat-tab>
-        <mat-tab label="Edit Profile">Content 2</mat-tab>
-        <mat-tab label="Settings">Content 2</mat-tab>
+        <mat-tab label="My Campaigns">
+          <br>
+          You have not chosen any campaigns to volunteer for
+        </mat-tab>
+        <mat-tab label="Find Campaigns">
+          <div class="tab-container">
+            <app-find-matches-form></app-find-matches-form>
+          </div>
+        </mat-tab>
+        <mat-tab label="Update Issues">
+          <app-change-issues-form></app-change-issues-form>
+        </mat-tab>
+        <mat-tab label="Edit Profile" disabled>Content 2</mat-tab>
+        <mat-tab label="Settings" disabled>Content 2</mat-tab>
       </mat-tab-group>
     </div>
   </mat-card>
 </div>
-
-  <div class="button-row">
-    <button mat-raised-button [routerLink]="['/find_matches']" color="primary">Find Campaigns Near You</button>
-  </div>
-  <br>
-  <div class="button-row">
-    <button mat-raised-button [routerLink]="['/issues']" color="primary">Update Issues</button>
-  </div>
-  <br>
 </div>
 
 

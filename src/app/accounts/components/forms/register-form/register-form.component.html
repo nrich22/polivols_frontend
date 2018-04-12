@@ -44,7 +44,7 @@
         <mat-form-field>
           <input matInput placeholder="Zip Code" [formControlName]="'zip_code'" maxlength="5" required>
         </mat-form-field>
-        <mat-form-field class="right-input" *ngIf="!isVolunteer" style="width: 30%">
+        <mat-form-field cl *ngIf="!isVolunteer" style="width: 30%">
           <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'" type="number">
         </mat-form-field><br>
         <mat-form-field>
@@ -54,7 +54,7 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field class="right-input" *ngIf="!isVolunteer" style="width: 30%">
+        <mat-form-field *ngIf="!isVolunteer" style="width: 30%">
           <input matInput [placeholder]="'Campaign Website Link'" [formControlName]="'link'">
         </mat-form-field><br>
         <mat-form-field>
@@ -79,8 +79,9 @@
       </mat-step>
       <mat-step>
         <ng-template matStepLabel>Register</ng-template>
-        Are you ready to volunteer?
         Agree to Terms and Conditions?
+        <button mat-button matStepperNext>View Terms</button>
+        <br>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="register()">Register</button>

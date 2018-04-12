@@ -31,6 +31,11 @@ export class MatchesService extends DataService {
     return this.http
       .get(`${environment.baseUrl}/matches/?campaign=${user.user_id}`);
   }
+  getVolMatches() {
+    const user = this.authService.currentUser();
+    return this.http
+      .get(`${environment.baseUrl}/matches/?volunteer=${user.user_id}`);
+  }
   sendEmail(subject, message) {
     const user = this.authService.currentUser();
     return this.http
