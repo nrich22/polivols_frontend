@@ -27,3 +27,16 @@
   color: white;
   margin-left: 10px;
 }
+.campaign-button {
+  margin-top: 15px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.profile-header {
+  margin-left: 20px;
+  color: #0e4878;
+  font-family: "Asap", sans-serif;
+}
+.profile-header-container {
+  height: 30px;
+}

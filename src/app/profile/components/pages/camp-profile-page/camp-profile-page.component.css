@@ -1,0 +1,41 @@
+.page-header {
+  background-color: white;
+}
+.profile-body {
+  width: 80%;
+}
+.header-card {
+  height: 70px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.logout-button {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.page-body {
+  background-color: #0e4f82;
+}
+.profile-container {
+  height: 110vh;
+  background-color: #0e4f82;
+}
+.logo {
+  margin-left: 10px;
+}
+.welcome-header {
+  color: white;
+  margin-left: 10px;
+}
+.campaign-button {
+  margin-right: 40px;
+  vertical-align: middle;
+}
+.profile-header {
+  margin-left: 20px;
+  color: #0e4878;
+  font-family: "Asap", sans-serif;
+}
+.profile-header-container {
+  height: 30px;
+}
