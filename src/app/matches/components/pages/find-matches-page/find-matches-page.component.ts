@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatTableDataSource, MatTable} from '@angular/material';
 import {Router} from '@angular/router';
 import {MatchesService} from '../../../services/matches.service';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 
 export interface Element {
   id: number;
@@ -10,8 +11,8 @@ export interface Element {
   state: string;
   issues: string;
   link: string;
-  num_vols: number;
-  hours: number;
+  party: string;
+  gov_level: string;
 }
 
 @Component({
@@ -21,15 +22,17 @@ export interface Element {
 })
 
 export class FindMatchesPageComponent implements AfterViewInit, OnInit {
-  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'num_vols', 'issues', 'link', 'interested'];
+  numCamps;
+  displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'issues', 'link', 'interested'];
   dataSource: MatTableDataSource<Element>;
-  constructor(private matchService: MatchesService, private router: Router) {}
+  constructor(private authService: AuthenticationService, private matchService: MatchesService, private router: Router) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {
     this.dataSource = new MatTableDataSource([]);
     this.matchService.getPotentialMatches()
       .subscribe((matches: any[]) => {
         const elements: Element[] = [];
+        this.numCamps = matches.length;
         for (const match of matches) {
           elements.push({
             id: match.id,
@@ -38,8 +41,8 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
             state: match.state,
             issues: match.issues,
             link: match.link,
-            num_vols: match.num_vols,
-            hours: match.hrs_per_week
+            party: match.party,
+            gov_level: this.getGovLevel(match.level)
           });
         }
         this.dataSource.data = elements;
@@ -50,5 +53,21 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
   }
   createMatch(element) {
     this.matchService.createMatch(element.id).subscribe();
+  }
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['/welcome']);
+  }
+  getGovLevel(gov_level) {
+    if (gov_level === 'S') {
+      return 'State';
+    }
+    if (gov_level === 'F') {
+      return 'Federal';
+    }
+    if (gov_level === 'L') {
+      return 'Local';
+    }
+    return '';
   }
 }

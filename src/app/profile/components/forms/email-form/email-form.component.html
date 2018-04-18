@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+  <div class="example-container">
+    <div class="row justify-content-start to-text">
+      To: All Volunteers
+    </div>
+    <br><br>
+    <mat-form-field class="subject-form">
+      <input matInput [formControlName]="'subject'" placeholder="Subject">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="message-form">
+      <textarea matInput [formControlName]="'message'" placeholder="Message"></textarea>
+    </mat-form-field>
+  </div>
+  <br><br>
+    All emails are sent by polivolunteering@gmail.com. Be sure to sign your name and provide volunteers with a return
+    email if you would like them to respond.
+  <br><br>
+  <div class="row justify-content-end">
+    <button mat-raised-button (click)="sendEmail()" color="primary">Send</button>
+  </div>
+</form>

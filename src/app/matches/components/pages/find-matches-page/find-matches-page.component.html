@@ -1,74 +1,88 @@
-<header>
-  <img [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="65px" width="auto">
-</header>
+<div class="find-matches-container">
+<mat-card class="header-card">
+  <div class="row justify-content-between">
+    <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
+    <div>
+      <button class="logout-button" mat-raised-button color="primary" (click)="logOut()">Log Out</button>
+    </div>
+  </div>
+</mat-card>
+<br>
+<div class="row justify-content-center page-body">
+  <mat-card class="matches-card">
+    <div class="row justify-content-start card-text" *ngIf="numCamps > 0">
+      There are {{numCamps}} Campaigns near you. <br>
+      Show interest by selecting Volunteer, allowing Campaigns to reach you via email.
+    </div>
+    <br>
+    <div class="table-container mat-elevation-z8">
+    <mat-table class="matches-table" #table [dataSource]="dataSource">
 
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
 
-<div class="example-container mat-elevation-z8" style="width: 70%">
-  <mat-table #table [dataSource]="dataSource">
+      <!-- Party Column -->
+      <ng-container matColumnDef="party">
+        <mat-header-cell *matHeaderCellDef> Party </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.party}} </mat-cell>
+      </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
+      <!-- Gov Level Column -->
+      <ng-container matColumnDef="gov_level">
+        <mat-header-cell *matHeaderCellDef> Level of Gov. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gov_level}} </mat-cell>
+      </ng-container>
 
-    <!-- Zip Column -->
-    <ng-container matColumnDef="zip_code">
-      <mat-header-cell *matHeaderCellDef> Zip Code </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.zip_code}} </mat-cell>
-    </ng-container>
+      <!-- Zip Column -->
+      <ng-container matColumnDef="zip_code">
+        <mat-header-cell *matHeaderCellDef> Zip Code </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.zip_code}} </mat-cell>
+      </ng-container>
 
-    <!-- State Column -->
-    <ng-container matColumnDef="state">
-      <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
-    </ng-container>
+      <!-- State Column -->
+      <ng-container matColumnDef="state">
+        <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.state}} </mat-cell>
+      </ng-container>
 
-    <!-- Issues Column -->
-    <ng-container matColumnDef="issues">
-      <mat-header-cell *matHeaderCellDef> Issues </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.issues}} </mat-cell>
-    </ng-container>
+      <!-- Issues Column -->
+      <ng-container matColumnDef="issues">
+        <mat-header-cell *matHeaderCellDef> Issues </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.issues}} </mat-cell>
+      </ng-container>
 
-    <!-- # Vols Needed Column -->
-    <ng-container matColumnDef="num_vols">
-      <mat-header-cell *matHeaderCellDef> # of Vols Needed </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.num_vols}} </mat-cell>
-    </ng-container>
-
-    <!-- Hours Column -->
-    <ng-container matColumnDef="hours">
-      <mat-header-cell *matHeaderCellDef> Hours Per Week </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.hours}} </mat-cell>
-    </ng-container>
-
-    <!-- Link Column -->
-    <ng-container matColumnDef="link">
-      <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <a href="{{element.link}} ">campaign site</a>
-      </mat-cell>
-    </ng-container>
-
-    <!-- Interested Column -->
-    <ng-container matColumnDef="interested">
-      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <!-- Link Column -->
+      <ng-container matColumnDef="link">
+        <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-raised-button (click)="createMatch(element);" onclick="this.disabled=true;" color="primary">Volunteer</button>
+          <a href="{{element.link}} ">campaign site</a>
         </mat-cell>
-    </ng-container>
+      </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+      <!-- Interested Column -->
+      <ng-container matColumnDef="interested">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="createMatch(element);" onclick="this.disabled=true;" color="primary">Volunteer</button>
+          </mat-cell>
+      </ng-container>
 
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    </div>
+    <br>
   <mat-paginator #paginator
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 20]"
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10]"
                  [showFirstLastButtons]="true">
   </mat-paginator>
+    <div class="button-row row justify-content-end">
+      <button mat-raised-button [routerLink]="['/profile']" color="primary">Done</button>
+    </div>
+  </mat-card>
 </div>
-<br>
-<div class="button-row">
-  <button mat-raised-button [routerLink]="['/profile']" color="primary">Done</button>
 </div>

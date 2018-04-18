@@ -1,0 +1,38 @@
+.profile-header {
+  margin-left: 20px;
+  color: #0e4f82;
+  font-family: "Asap", sans-serif;
+}
+.profile-header-container {
+  height: 30px;
+}
+.find-matches-container {
+  height: 110vh;
+  background-color: #0e4f82;
+}
+.logo {
+  margin-left: 10px;
+}
+.page-header {
+  background-color: white;
+}
+.page-body {
+  background-color: #0e4f82;
+}
+.header-card {
+  height: 70px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.logout-button {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+.matches-card {
+  width: 80%;
+}
+.card-text {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  margin-left: 0px;
+}

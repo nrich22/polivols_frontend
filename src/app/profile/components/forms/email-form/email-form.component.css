@@ -1,0 +1,15 @@
+.subject-form {
+  width: 80%;
+}
+.message-form {
+  width: 90%;
+  height: 40px;
+}
+.to-text {
+  margin-left: 0px;
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}
+textarea {
+  height: 150px;
+}

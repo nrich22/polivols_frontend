@@ -10,17 +10,16 @@
   <br>
   <div class="row justify-content-center">
     <mat-card class="profile-body">
-      <div class="row justify-content-center">
-        <mat-tab-group>
-          <mat-tab label="My Volunteers">
-            <br>
-            No volunteers have shown interest in your campaign
+      <div class="row justify-content-center align-content-center">
+        <mat-tab-group class="tabs row justify-content-center align-content-center">
+          <mat-tab class="tab-label" label="My Volunteers">
+            <app-my-vols-form></app-my-vols-form>
           </mat-tab>
-          <mat-tab label="Update Issues">
+          <mat-tab class="tab-label" label="Update Issues">
             <app-change-issues-form></app-change-issues-form>
           </mat-tab>
-          <mat-tab label="Edit Profile" disabled>Content 2</mat-tab>
-          <mat-tab label="Settings" disabled>Content 2</mat-tab>
+          <mat-tab class="tab-label" label="Edit Profile" disabled>Content 2</mat-tab>
+          <mat-tab class="tab-label" label="Settings" disabled>Content 2</mat-tab>
         </mat-tab-group>
       </div>
     </mat-card>

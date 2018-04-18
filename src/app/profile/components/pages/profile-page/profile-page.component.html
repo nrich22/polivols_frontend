@@ -4,7 +4,7 @@
       <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
       <div class="row justify-content-end profile-header-container">
         <div>
-          <button class="campaign-button" mat-raised-button color="primary">Find Campaigns</button>
+          <button class="campaign-button" mat-raised-button color="primary" [routerLink]="['/find_matches']">Find Campaigns</button>
         </div>
         <div>
           <button class="logout-button" mat-raised-button color="primary" (click)="logOut()">Log Out</button>
@@ -16,10 +16,9 @@
 <div class="row justify-content-center">
   <mat-card class="profile-body">
     <div class="row justify-content-center">
-      <mat-tab-group>
+      <mat-tab-group class="tabs">
         <mat-tab label="My Campaigns">
-          <br>
-          You have not chosen any campaigns to volunteer for
+          <app-my-camps-form></app-my-camps-form>
         </mat-tab>
         <mat-tab label="Update Issues">
           <app-change-issues-form></app-change-issues-form>

@@ -1,0 +1,75 @@
+<mat-card class="vols-card">
+  <div class="row justify-content-between " *ngIf="currNumVols > 1">
+    <div class="card-text has-vols">
+        {{currNumVols}} Volunteers have shown interest in your Campaign
+    </div>
+    <button class="email-button" mat-raised-button (click)="openDialog()" color="primary">Email All</button>
+  </div>
+  <div class="row justify-content-between " *ngIf="currNumVols == 1">
+    <div class="card-text has-vols">
+      {{currNumVols}} Volunteer has shown interest in your Campaign
+    </div>
+    <button class="email-button" mat-raised-button (click)="openDialog()" color="primary">Email All</button>
+  </div>
+  <div class="row justify-content-start card-text" *ngIf="currNumVols == 0">
+    No Volunteers have shown interest in your Campaign
+  </div>
+  <br *ngIf="currNumVols > 0">
+  <div class="table-container mat-elevation-z8" *ngIf="currNumVols > 0">
+    <mat-table #table [dataSource]="dataSource">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.name}} </mat-cell>
+      </ng-container>
+
+      <!-- Zip Column -->
+      <ng-container matColumnDef="zip_code">
+        <mat-header-cell *matHeaderCellDef> Zip Code </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.zip_code}} </mat-cell>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="state">
+        <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.state}} </mat-cell>
+      </ng-container>
+
+      <!-- Party Needed Column -->
+      <ng-container matColumnDef="party">
+        <mat-header-cell *matHeaderCellDef> Party </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.party}} </mat-cell>
+      </ng-container>
+
+      <!-- Issues Column -->
+      <ng-container matColumnDef="issues">
+        <mat-header-cell *matHeaderCellDef> Issues </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.issues}} </mat-cell>
+      </ng-container>
+
+      <!-- Hours Column -->
+      <ng-container matColumnDef="hours">
+        <mat-header-cell *matHeaderCellDef> Hours Per Week </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.hours}} </mat-cell>
+      </ng-container>
+
+      <!-- Link Column -->
+      <ng-container matColumnDef="link">
+        <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer">
+          <a href="{{volunteer.link}} ">campaign site</a>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <br>
+  <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+</mat-card>

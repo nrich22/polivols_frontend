@@ -1,0 +1,12 @@
+.has-vols {
+  height: auto;
+  line-height: 36px; /* <-- this is what you must define */
+  vertical-align: bottom;
+}
+.card-text {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}
+.email-button {
+  margin-right: 15px;
+}
