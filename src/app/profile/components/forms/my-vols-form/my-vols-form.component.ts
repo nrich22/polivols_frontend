@@ -27,7 +27,7 @@ export class MyVolsFormComponent implements OnInit, AfterViewInit {
   recipient_list = [];
   currNumVols;
   numDesiredVols;
-  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'party', 'issues'];
+  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'party'];
   dataSource: MatTableDataSource<VolElement>;
   constructor(
     private matchService: MatchesService,

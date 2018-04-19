@@ -13,6 +13,7 @@ export interface Element {
   link: string;
   party: string;
   gov_level: string;
+  issues_in_common;
 }
 
 @Component({
@@ -23,7 +24,7 @@ export interface Element {
 
 export class FindMatchesPageComponent implements AfterViewInit, OnInit {
   numCamps;
-  displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'issues', 'link', 'interested'];
+  displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'issues_in_common', 'link', 'interested'];
   dataSource: MatTableDataSource<Element>;
   constructor(private authService: AuthenticationService, private matchService: MatchesService, private router: Router) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,7 +43,8 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
             issues: match.issues,
             link: match.link,
             party: match.party,
-            gov_level: this.getGovLevel(match.level)
+            gov_level: this.getGovLevel(match.level),
+            issues_in_common: match.issues_in_common
           });
         }
         this.dataSource.data = elements;
