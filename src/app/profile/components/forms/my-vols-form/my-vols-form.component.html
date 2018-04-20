@@ -12,11 +12,11 @@
     <button class="email-button" mat-raised-button (click)="openDialog()" color="primary">Email All</button>
   </div>
   <div class="row justify-content-start card-text" *ngIf="currNumVols == 0">
-    No Volunteers have shown interest in your Campaign
+    No Volunteers have shown interest in your Campaign. Select Issues important to your Campaign to gain Volunteers.
   </div>
   <br *ngIf="currNumVols > 0">
   <div class="table-container mat-elevation-z8" *ngIf="currNumVols > 0">
-    <mat-table #table [dataSource]="dataSource">
+    <mat-table class="my-vols-table" #table [dataSource]="dataSource">
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
@@ -49,11 +49,9 @@
       </ng-container>
 
       <!-- Link Column -->
-      <ng-container matColumnDef="link">
-        <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
-        <mat-cell *matCellDef="let volunteer">
-          <a href="{{volunteer.link}} ">campaign site</a>
-        </mat-cell>
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> Vol Type </mat-header-cell>
+        <mat-cell *matCellDef="let volunteer"> {{volunteer.type}} </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -61,7 +59,7 @@
     </mat-table>
   </div>
   <br>
-  <mat-paginator #paginator
+  <mat-paginator *ngIf="currNumVols > 0" class="paginator" #paginator
                  [pageSize]="5"
                  [pageSizeOptions]="[5, 10]"
                  [showFirstLastButtons]="true">

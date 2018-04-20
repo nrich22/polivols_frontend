@@ -3,23 +3,22 @@ import {AuthenticationService} from '../../../../accounts/services/authenticatio
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+  selector: 'app-change-issues-page',
+  templateUrl: './change-issues-page.component.html',
+  styleUrls: ['./change-issues-page.component.css']
 })
-export class ProfilePageComponent implements OnInit {
-  fullImagePath: string;
-
+export class ChangeIssuesPageComponent implements OnInit {
+  fullImagePath;
+  isVolunteer: boolean;
   constructor(private authService: AuthenticationService, private router: Router) {
     this.fullImagePath = 'assets/logo1.png';
   }
-
   ngOnInit() {
-    this.authService.setIsVolunteer(true);
+    this.isVolunteer = this.authService.isVolunteer;
+    console.log(this.isVolunteer);
   }
   logOut() {
     this.authService.logout();
     this.router.navigate(['/welcome']);
   }
-
 }

@@ -1,4 +1,4 @@
-<mat-card class="vols-card">
+<mat-card class="camp-card">
   <div class="row justify-content-start card-text" *ngIf="currNumCamps > 1">
     You have shown interest in {{currNumCamps}} Campaigns
   </div>
@@ -10,7 +10,7 @@
   </div>
   <br *ngIf="currNumCamps > 0">
     <div class="table-container mat-elevation-z8" *ngIf="currNumCamps > 0">
-      <mat-table #table [dataSource]="dataSource">
+      <mat-table class="my-camps-table" #table [dataSource]="dataSource">
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
@@ -46,18 +46,26 @@
         <ng-container matColumnDef="link">
           <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <a href="{{element.link}} ">more info</a>
+            <a href="https://{{element.link}}/"> campaign site </a>
           </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <!-- Interested Column -->
+        <ng-container matColumnDef="interested">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="deleteMatch(element);" onclick="this.disabled=true;" color="primary">Remove Me</button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row class="header-row" *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
     </div>
   <br>
-    <mat-paginator #paginator
-                   [pageSize]="5"
-                   [pageSizeOptions]="[5, 10]"
-                   [showFirstLastButtons]="true">
-    </mat-paginator>
+  <mat-paginator *ngIf="currNumCamps > 0" class="paginator" #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
 </mat-card>

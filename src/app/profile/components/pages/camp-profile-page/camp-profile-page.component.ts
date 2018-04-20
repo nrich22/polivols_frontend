@@ -16,6 +16,7 @@ export class CampProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.setIsVolunteer(false);
   }
   logOut() {
     this.authService.logout();

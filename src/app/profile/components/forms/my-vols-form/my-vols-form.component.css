@@ -10,3 +10,22 @@
 .email-button {
   margin-right: 15px;
 }
+.table-container {
+  width: 800px;
+}
+.vols-card {
+  background-color: white;
+}
+.header-row {
+  background-color: #0e4f82;
+  color: white;
+}
+.header-row > * {
+  color: white;
+}
+.my-vols-table {
+  font-family: "Asap", sans-serif;
+}
+.paginator {
+  font-family: "Asap", sans-serif;
+}

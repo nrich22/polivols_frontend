@@ -9,10 +9,6 @@
   padding-top: 5px;
   padding-left: 10px;
 }
-.logout-button {
-  margin-top: 15px;
-  margin-right: 10px;
-}
 .page-body {
   background-color: #0e4f82;
 }
@@ -21,16 +17,25 @@
   background-color: #0e4f82;
 }
 .logo {
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-right: 15px;
 }
+.logout-button {
+  font-family: "Asap", sans-serif;
+  color: grey;
+  margin-top: 22.5px;
+  margin-right: 20px;
+}
+.campaign-button {
+  font-family: "Asap", sans-serif;
+  color: grey;
+  margin-top: 22.5px;
+  margin-right: 15px;
+}
+
 .welcome-header {
   color: white;
   margin-left: 10px;
-}
-.campaign-button {
-  margin-top: 15px;
-  margin-right: 10px;
-  vertical-align: middle;
 }
 .profile-header {
   margin-left: 20px;

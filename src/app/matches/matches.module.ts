@@ -6,7 +6,7 @@ import { FindMatchesPageComponent } from './components/pages/find-matches-page/f
 import {MatTableModule} from '@angular/material/table';
 import {
   MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatPaginatorModule,
-  MatProgressBarModule
+  MatProgressBarModule, MatSortModule
 } from '@angular/material';
 import {MatchesService} from './services/matches.service';
 import { CampMatchesPageComponent } from './components/pages/camp-matches-page/camp-matches-page.component';
@@ -21,6 +21,7 @@ import {AuthenticationService} from '../accounts/services/authentication.service
     CommonModule,
     MatchesRoutingModule,
     MatTableModule,
+    MatSortModule,
     MatCardModule,
     ReactiveFormsModule,
     MatPaginatorModule,

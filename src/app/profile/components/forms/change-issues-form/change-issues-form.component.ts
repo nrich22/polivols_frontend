@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 import {IssuesService} from '../../../services/issues.service';
 
+export interface IssueElement {
+  title: number;
+  is_checked: boolean;
+}
+
 @Component({
   selector: 'app-change-issues-form',
   providers: [IssuesService],
@@ -10,7 +15,9 @@ import {IssuesService} from '../../../services/issues.service';
 })
 export class ChangeIssuesFormComponent implements OnInit {
   issues;
+  current_issues;
   selected_issues = [];
+  elements: IssueElement[];
   fullImagePath;
 
   constructor(

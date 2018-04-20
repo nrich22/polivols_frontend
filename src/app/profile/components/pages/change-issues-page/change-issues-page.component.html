@@ -4,10 +4,16 @@
       <div class="row justify-content-start">
         <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
         <div>
-          <p class="campaign-button">My Volunteers</p>
+          <p class="campaign-button" *ngIf="!isVolunteer" [routerLink]="['/camp_profile']">My Volunteers</p>
         </div>
         <div>
-          <p class="campaign-button" [routerLink]="['/update_issues']">Update Issues</p>
+          <p class="campaign-button" *ngIf="isVolunteer" [routerLink]="['/profile']">My Campaigns</p>
+        </div>
+        <div>
+          <p class="campaign-button" *ngIf="isVolunteer" [routerLink]="['/find_matches']">Find Campaigns</p>
+        </div>
+        <div>
+          <p class="campaign-button">Update Issues</p>
         </div>
       </div>
       <div class="row justify-content-end profile-header-container">
@@ -19,7 +25,7 @@
   </mat-card>
   <br>
   <div class="row justify-content-center align-content-center">
-    <app-my-vols-form></app-my-vols-form>
+    <app-change-issues-form></app-change-issues-form>
   </div>
 </div>
 

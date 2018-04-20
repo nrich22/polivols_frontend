@@ -1,33 +1,28 @@
 <div class="profile-container">
   <mat-card class="header-card">
     <div class="row justify-content-between">
-      <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
-      <div class="row justify-content-end profile-header-container">
+      <div class="row justify-content-start">
+        <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
         <div>
-          <button class="campaign-button" mat-raised-button color="white" [routerLink]="['/find_matches']">Find Campaigns</button>
+          <p class="campaign-button">My Campaigns</p>
         </div>
         <div>
-          <button class="logout-button" mat-raised-button color="white" (click)="logOut()">Log Out</button>
+          <p class="campaign-button" [routerLink]="['/find_matches']">Find Campaigns</p>
+        </div>
+        <div>
+          <p class="campaign-button" [routerLink]="['/update_issues']">Update Issues</p>
+        </div>
+      </div>
+      <div class="row justify-content-end profile-header-container">
+        <div>
+          <p class="logout-button" (click)="logOut()">Log Out</p>
         </div>
       </div>
     </div>
   </mat-card>
   <br>
-<div class="row justify-content-center">
-  <mat-card class="profile-body">
-    <div class="row justify-content-center">
-      <mat-tab-group class="tabs">
-        <mat-tab label="My Campaigns">
-          <app-my-camps-form></app-my-camps-form>
-        </mat-tab>
-        <mat-tab label="Update Issues">
-          <app-change-issues-form></app-change-issues-form>
-        </mat-tab>
-        <mat-tab label="Edit Profile" disabled>Content 2</mat-tab>
-        <mat-tab label="Settings" disabled>Content 2</mat-tab>
-      </mat-tab-group>
-    </div>
-  </mat-card>
+<div class="row justify-content-center align-content-center">
+  <app-my-camps-form></app-my-camps-form>
 </div>
 </div>
 

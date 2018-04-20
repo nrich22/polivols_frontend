@@ -10,6 +10,8 @@ import {Observable} from 'rxjs/Observable';
 export class AuthenticationService {
   jwtHelper: JwtHelperService;
   isVolunteer: boolean;
+  currentUserId: number;
+  decoded_token;
   private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   constructor(private http: HttpClient) {
     this.jwtHelper = new JwtHelperService({});
@@ -68,9 +70,14 @@ export class AuthenticationService {
     }
   }
 
-  getUser(id) {
-    return this.http
-      .get(`${environment.baseUrl}//`);
+  getUser() {
+    if (this.isVolunteer) {
+      return this.http
+        .get(`${environment.baseUrl}/volunteers/${this.currentUserId}/`);
+    } else {
+      return this.http
+        .get(`${environment.baseUrl}/campaigns/${this.currentUserId}/`);
+    }
   }
 
   logout() {

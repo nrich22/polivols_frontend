@@ -12,6 +12,7 @@ export interface VolElement {
   state: string;
   hours: number;
   party: string;
+  type: string;
   issues: string;
 }
 
@@ -27,7 +28,7 @@ export class MyVolsFormComponent implements OnInit, AfterViewInit {
   recipient_list = [];
   currNumVols;
   numDesiredVols;
-  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'party'];
+  displayedColumns = ['name', 'zip_code', 'state', 'hours', 'party', 'type'];
   dataSource: MatTableDataSource<VolElement>;
   constructor(
     private matchService: MatchesService,
@@ -49,7 +50,8 @@ export class MyVolsFormComponent implements OnInit, AfterViewInit {
             state: match.volunteer.state,
             hours: match.volunteer.hrs_per_week,
             party: match.volunteer.party,
-            issues: match.volunteer.issues
+            issues: match.volunteer.issues,
+            type: this.getVolType(match.volunteer.type)
           });
         }
         this.dataSource.data = volunteers;
@@ -65,5 +67,17 @@ export class MyVolsFormComponent implements OnInit, AfterViewInit {
       width: '500px',
       data: { subject: this.subject, message: this.message, recipient_list: this.recipient_list }
     });
+  }
+  getVolType(gov_level) {
+    if (gov_level === 'E') {
+      return 'Work Events';
+    }
+    if (gov_level === 'P') {
+      return 'Make Phone Calls';
+    }
+    if (gov_level === 'C') {
+      return 'Canvasing';
+    }
+    return '';
   }
 }

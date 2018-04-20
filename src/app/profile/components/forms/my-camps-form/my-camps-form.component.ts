@@ -1,8 +1,10 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {MatchesService} from '../../../../matches/services/matches.service';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 export interface CampElement {
+  match_id: number;
   id: number;
   name: string;
   zip_code: string;
@@ -19,7 +21,7 @@ export interface CampElement {
 })
 export class MyCampsFormComponent implements OnInit, AfterViewInit {
   currNumCamps;
-  displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'link'];
+  displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'link', 'interested'];
   dataSource: MatTableDataSource<CampElement>;
   constructor(private matchService: MatchesService) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -31,8 +33,9 @@ export class MyCampsFormComponent implements OnInit, AfterViewInit {
         this.currNumCamps = matches.length;
         for (const match of matches) {
           elements.push({
+            match_id: match.id,
             id: match.campaign.id,
-            name: `${match.campaign.first_name} ${match.campaign.last_name}`,
+            name: match.campaign.camp_name,
             zip_code: match.campaign.zip_code,
             state: match.campaign.state,
             link: match.campaign.link,
@@ -45,6 +48,11 @@ export class MyCampsFormComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+  deleteMatch(element) {
+    this.currNumCamps -= 1;
+    this.dataSource.data = this.dataSource.data.filter(goodElement => goodElement.id !== element.id);
+    this.matchService.deleteMatch(element.match_id).subscribe();
   }
   getGovLevel(gov_level) {
     if (gov_level === 'S') {

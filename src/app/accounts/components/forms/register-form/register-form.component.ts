@@ -24,6 +24,11 @@ export class RegisterFormComponent implements OnInit {
     {value: 'L', viewValue: 'Libertarian'},
     {value: 'I', viewValue: 'Independent'}
   ];
+  types = [
+    {value: 'E', viewValue: 'Work Events'},
+    {value: 'P', viewValue: 'Make Phone Calls'},
+    {value: 'C', viewValue: 'Canvasing'}
+  ];
   levels = [
     {value: 'L', viewValue: 'Local'},
     {value: 'S', viewValue: 'State'},
@@ -68,7 +73,8 @@ export class RegisterFormComponent implements OnInit {
       party: new FormControl('', []),
       level: new FormControl('', []),
       num_vols: new FormControl('', []),
-      link: new FormControl('', [])
+      link: new FormControl('', []),
+      type: new FormControl('', [])
     });
   }
 

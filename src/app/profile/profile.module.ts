@@ -20,6 +20,7 @@ import {MatchesService} from '../matches/services/matches.service';
 import {AuthenticationService} from '../accounts/services/authentication.service';
 import {VolunteerService} from '../accounts/services/volunteer.service';
 import {CampaignService} from '../accounts/services/campaign.service';
+import { ChangeIssuesPageComponent } from './components/pages/change-issues-page/change-issues-page.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,7 @@ import {CampaignService} from '../accounts/services/campaign.service';
     MatButtonModule,
   ],
   declarations: [ProfilePageComponent, IssuesPageComponent, IssuesFormComponent, CampProfilePageComponent,
-    ChangeIssuesFormComponent, FindMatchesFormComponent, MyCampsFormComponent, MyVolsFormComponent, EmailFormComponent],
+    ChangeIssuesFormComponent, FindMatchesFormComponent, MyCampsFormComponent, MyVolsFormComponent, EmailFormComponent, ChangeIssuesPageComponent],
   providers: [
     AuthenticationService,
     MatchesService,
