@@ -33,8 +33,10 @@ export class LoginFormComponent implements OnInit {
       .login(this.form.get('email').value, this.form.get('password').value)
       .subscribe(token => {
         if (this.authService.currentUser().is_campaign) {
+          this.authService.setIsVolunteer(false);
           this.router.navigate(['/camp_profile']);
         } else {
+          this.authService.setIsVolunteer(true);
           this.router.navigate(['/profile']);
         }
       });

@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 import {IssuesService} from '../../../services/issues.service';
 
-export interface IssueElement {
-  title: number;
-  is_checked: boolean;
-}
-
 @Component({
   selector: 'app-change-issues-form',
   providers: [IssuesService],
@@ -15,9 +10,8 @@ export interface IssueElement {
 })
 export class ChangeIssuesFormComponent implements OnInit {
   issues;
-  current_issues;
+  updated: boolean;
   selected_issues = [];
-  elements: IssueElement[];
   fullImagePath;
 
   constructor(
@@ -39,6 +33,6 @@ export class ChangeIssuesFormComponent implements OnInit {
     console.log(this.selected_issues);
   }
   updateIssues() {
-    this.issueService.updateIssues(this.selected_issues).subscribe(result => {});
+    this.issueService.updateIssues(this.selected_issues).subscribe(result => {this.updated = true; });
   }
 }

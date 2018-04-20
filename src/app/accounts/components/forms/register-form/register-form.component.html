@@ -14,7 +14,7 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field *ngIf="!isVolunteer" style="width: 30%">
-          <input matInput [placeholder]="'Campaign Name'" value="Jim Smith 4 Senate" required>
+          <input matInput [placeholder]="'Campaign Name'" [formControlName]="'camp_name'" value="Jim Smith 4 Senate" required>
         </mat-form-field><br>
         <mat-form-field>
           <input matInput placeholder="Last Name" formControlName="last_name" required required maxlength="20">

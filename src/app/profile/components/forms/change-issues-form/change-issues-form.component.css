@@ -2,3 +2,9 @@
   font-family: "Asap", sans-serif;
   font-weight: bold;
 }
+.update-spinner {
+  float:left;
+  width: 10px;
+  height: 10px;
+  margin: 5px 10px 0px 0px;
+}

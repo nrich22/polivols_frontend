@@ -23,9 +23,13 @@
 <br>
 <div class="row justify-content-center page-body">
   <mat-card class="matches-card">
-    <div class="row justify-content-start card-text" *ngIf="numCamps > 0">
+    <div class="row justify-content-start card-text" *ngIf="numCamps > 1">
       There are {{numCamps}} Campaigns near you. <br>
       Show interest by selecting Volunteer, allowing Campaigns to reach you via email.
+    </div>
+    <div class="row justify-content-start card-text" *ngIf="numCamps == 1">
+      There is 1 Campaign near you. <br>
+      Show interest by selecting Volunteer, allowing this Campaign to reach you via email.
     </div>
     <div class="row justify-content-center card-text" *ngIf="numCamps == 0">
       There are no campaigns currently in your area. Check again soon!

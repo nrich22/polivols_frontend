@@ -74,7 +74,8 @@ export class RegisterFormComponent implements OnInit {
       level: new FormControl('', []),
       num_vols: new FormControl('', []),
       link: new FormControl('', []),
-      type: new FormControl('', [])
+      type: new FormControl('', []),
+      camp_name: new FormControl('', [])
     });
   }
 
