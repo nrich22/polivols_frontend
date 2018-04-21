@@ -142,7 +142,7 @@
       </mat-form-field><br>
       <mat-form-field>
         <input matInput [type]="'number'" minlength="5" placeholder="Zip Code" [formControlName]="'zip_code'" maxlength="5" required>
-      </mat-form-field>
+      </mat-form-field><br>
       <mat-form-field>
         <mat-select placeholder="State" [formControlName]="'state'" required>
           <mat-option *ngFor="let state of states" [value]="state.value">

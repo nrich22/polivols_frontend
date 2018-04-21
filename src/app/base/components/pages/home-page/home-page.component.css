@@ -1,5 +1,5 @@
 /* Large desktops and laptops */
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .home-container {
     height: 100vh;
     background-image: url('/assets/capitol.png');
