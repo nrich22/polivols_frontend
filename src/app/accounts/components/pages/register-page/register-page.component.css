@@ -1,4 +1,11 @@
-.register-container {
-  height: 100vh;
-  background-color: #0e4f82;
+@media (min-width: 1200px) {
+  .register-container {
+    height: 100vh;
+    background-color: #0e4f82;
+  }
+}
+@media (max-width: 767px) {
+  .register-container {
+    background-color: #0e4f82;
+  }
 }

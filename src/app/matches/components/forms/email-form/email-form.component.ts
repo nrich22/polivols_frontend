@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {FormControl, FormGroup} from '@angular/forms';
 import {MatchesService} from '../../../services/matches.service';
+import {EmailService} from '../../../../profile/services/email.service';
 
 @Component({
   selector: 'app-email-form',
@@ -10,11 +11,15 @@ import {MatchesService} from '../../../services/matches.service';
 })
 
 export class EmailFormComponent implements OnInit {
+  emailTo: string;
   form: FormGroup;
   constructor(
     private matchService: MatchesService,
     public dialogRef: MatDialogRef<EmailFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    public emailService: EmailService,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+    this.emailTo =  this.emailService.emailTo;
+  }
   ngOnInit() {
     this.form = new FormGroup({
       subject: new FormControl(),

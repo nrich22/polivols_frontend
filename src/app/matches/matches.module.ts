@@ -14,6 +14,7 @@ import { EmailFormComponent } from './components/forms/email-form/email-form.com
 import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthenticationService} from '../accounts/services/authentication.service';
+import {EmailService} from '../profile/services/email.service';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {AuthenticationService} from '../accounts/services/authentication.service
   declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent],
   providers: [
     AuthenticationService,
-    MatchesService
+    MatchesService,
+    EmailService
   ],
   entryComponents: [
     EmailFormComponent,

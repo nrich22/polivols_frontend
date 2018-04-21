@@ -23,8 +23,8 @@ export class MyCampsFormComponent implements OnInit, AfterViewInit {
   currNumCamps;
   displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'link', 'interested'];
   dataSource: MatTableDataSource<CampElement>;
-  constructor(private matchService: MatchesService) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  constructor(private matchService: MatchesService) {}
   ngOnInit() {
     this.dataSource = new MatTableDataSource([]);
     this.matchService.getVolMatches()

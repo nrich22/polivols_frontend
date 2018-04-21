@@ -5,3 +5,14 @@
 .right-input {
   margin-left: 20px;
 }
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+  .sm-screen-register {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .lrg-screen-register {
+    display: none;
+  }
+}

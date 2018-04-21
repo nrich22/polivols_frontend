@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource, MatSort} from '@angular/material';
+import {MatPaginator, MatTable, MatTableDataSource, MatSort} from '@angular/material';
 import {Router} from '@angular/router';
 import {MatchesService} from '../../../services/matches.service';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
@@ -26,13 +26,12 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
   numCamps;
   displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'issues_in_common', 'link', 'interested'];
   dataSource: MatTableDataSource<Element>;
-  sortedData: MatTableDataSource<Element>;
-  constructor(private authService: AuthenticationService, private matchService: MatchesService, private router: Router) {}
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  ngOnInit() {
+  constructor(private authService: AuthenticationService, private matchService: MatchesService, private router: Router) {
     this.dataSource = new MatTableDataSource([]);
-    this.sortedData = new MatTableDataSource([]);
+  }
+  ngOnInit() {
     this.matchService.getPotentialMatches()
       .subscribe((matches: any[]) => {
         const elements: Element[] = [];
@@ -51,19 +50,23 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
           });
         }
         this.dataSource.data = elements;
-        this.sortedData.data = elements;
       });
   }
   ngAfterViewInit() {
-    this.sortedData.paginator = this.paginator;
-    this.sortedData.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
   createMatch(element) {
     this.matchService.createMatch(element.id).subscribe();
   }
   logOut() {
     this.authService.logout();
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/']);
   }
   getGovLevel(gov_level) {
     if (gov_level === 'S') {

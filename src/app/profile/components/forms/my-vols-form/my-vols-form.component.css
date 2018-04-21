@@ -4,6 +4,7 @@
   vertical-align: bottom;
 }
 .card-text {
+  margin-left: 15px;
   font-family: "Asap", sans-serif;
   font-weight: bold;
 }
@@ -11,7 +12,7 @@
   margin-right: 15px;
 }
 .table-container {
-  width: 800px;
+  width: 850px;
 }
 .vols-card {
   background-color: white;
@@ -27,5 +28,9 @@
   font-family: "Asap", sans-serif;
 }
 .paginator {
+  font-family: "Asap", sans-serif;
+}
+.search-bar {
+  width: 300px;
   font-family: "Asap", sans-serif;
 }

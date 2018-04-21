@@ -19,7 +19,7 @@ export class ProfilePageComponent implements OnInit {
   }
   logOut() {
     this.authService.logout();
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/']);
   }
 
 }

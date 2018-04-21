@@ -11,6 +11,7 @@ import {AuthenticationService} from '../../../services/authentication.service';
 })
 export class LoginFormComponent implements OnInit {
   fullImagePath;
+  incorrect = false;
   form: FormGroup;
   constructor(private authService: AuthenticationService, private router: Router) {
     this.fullImagePath = 'assets/logo1.png';

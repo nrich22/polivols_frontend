@@ -1,7 +1,7 @@
 <mat-card class="issues-card">
     <div class="container-fluid">
       <div class="row justify-content-center align-content-center">
-        <img [src]="fullImagePath" [routerLink]="['/welcome']" alt="Polivols Logo" height="60px" width="auto">
+        <img [src]="fullImagePath" [routerLink]="['/']" alt="Polivols Logo" height="60px" width="auto">
       </div>
       <h4>Check off the political issues most important to you </h4>
       <div class="container">
@@ -27,7 +27,7 @@
   <div class="container-fluid">
     <div class="row justify-content-between">
       <button mat-raised-button (click)="skipForNow()" color="primary">Skip For Now</button>
-      <button mat-raised-button color="primary" (click)="updateIssues(selected_issues)">Continue</button>
+      <button mat-raised-button color="primary" (click)="updateIssues()">Continue</button>
     </div>
   </div>
 </mat-card>

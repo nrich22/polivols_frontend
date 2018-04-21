@@ -11,6 +11,7 @@ export class AuthenticationService {
   jwtHelper: JwtHelperService;
   isVolunteer: boolean;
   currentUserId: number;
+  loginError = false;
   decoded_token;
   private json_headers = {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   constructor(private http: HttpClient) {
