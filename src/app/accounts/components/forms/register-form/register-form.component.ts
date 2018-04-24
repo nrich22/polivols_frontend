@@ -15,6 +15,12 @@ import 'rxjs/add/operator/switchMap';
 export class RegisterFormComponent implements OnInit {
   fullImagePath;
   form: FormGroup;
+  submitted;
+  respError;
+  requiredEmail = false;
+  requiredPassword = false;
+  requiredZipCode = false;
+  requiredState = false;
   isLinear = false;
   isVolunteer = true;
   parties = [
@@ -80,11 +86,27 @@ export class RegisterFormComponent implements OnInit {
   }
 
   register() {
+    this.submitted = true;
     this.authService.register(this.form.getRawValue(), this.isVolunteer)
       .switchMap(result => this.authService.login(this.form.get('email').value, this.form.get('password').value))
       .subscribe(result => {
         this.router.navigate(['/issues']);
-      });
+      },
+        error => {
+          this.respError = error.error;
+          if (this.respError.email) {
+            this.requiredEmail = true;
+          }
+          if (this.respError.password) {
+            this.requiredPassword = true;
+          }
+          if (this.respError.zip_code) {
+            this.requiredZipCode = true;
+          }
+          if (this.respError.state) {
+            this.requiredState = true;
+          }
+        });
   }
 
   get first_name() {

@@ -7,28 +7,28 @@
     <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
       <mat-step>
         <ng-template matStepLabel>Account Info</ng-template>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput [placeholder]="'First Name'" [formControlName]="'first_name'" required maxlength="20">
           <mat-error *ngIf="first_name.hasError('required')">
             A first name is required
           </mat-error>
         </mat-form-field>
-        <mat-form-field *ngIf="!isVolunteer" style="width: 30%">
+        <mat-form-field *ngIf="!isVolunteer" style="width: 30%" color="accent">
           <input matInput [placeholder]="'Campaign Name'" [formControlName]="'camp_name'" value="Jim Smith 4 Senate" required>
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput placeholder="Last Name" formControlName="last_name" required required maxlength="20">
           <mat-error *ngIf="last_name.hasError('required')">
             A last name is required
           </mat-error>
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput placeholder="Email" formControlName="email" required>
           <mat-error *ngIf="email.hasError('required')">
             A proper email is required
           </mat-error>
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput [placeholder]="'Password'" [formControlName]="'password'" [type]="'password'" required maxlength="20">
           <mat-error *ngIf="password.hasError('required')">
             A password is required
@@ -44,44 +44,44 @@
           <span *ngIf="!isVolunteer">Campaign</span>
           Info
         </ng-template>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput [type]="'number'" minlength="5" placeholder="Zip Code" [formControlName]="'zip_code'" maxlength="5" required>
         </mat-form-field>
-        <mat-form-field *ngIf="!isVolunteer" style="width: 30%">
+        <mat-form-field *ngIf="!isVolunteer" style="width: 30%" color="accent">
           <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'" type="number">
         </mat-form-field>
-        <mat-form-field *ngIf="isVolunteer" style="width: 30%">
+        <mat-form-field *ngIf="isVolunteer" style="width: 30%" color="accent">
           <mat-select placeholder="Preferred Vol Type" [formControlName]="'type'">
             <mat-option *ngFor="let type of types" [value]="type.value">
               {{ type.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <mat-select placeholder="State" [formControlName]="'state'" required>
             <mat-option *ngFor="let state of states" [value]="state.value">
               {{ state.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="!isVolunteer" style="width: 30%">
+        <mat-form-field *ngIf="!isVolunteer" style="width: 30%" color="accent">
           <input matInput [placeholder]="'Campaign Website Link'" value='www.polivols.com' [formControlName]="'link'">
         </mat-form-field><br>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <mat-select placeholder="Party Affiliation" [formControlName]="'party'">
             <mat-option *ngFor="let party of parties" [value]="party.value">
               {{ party.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field><br>
-        <mat-form-field *ngIf="!isVolunteer">
+        <mat-form-field *ngIf="!isVolunteer" color="accent">
           <mat-select placeholder="Gov Level" [formControlName]="'level'">
             <mat-option *ngFor="let level of levels" [value]="level.value">
               {{ level.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field *ngIf="isVolunteer">
+        <mat-form-field *ngIf="isVolunteer" color="accent">
           <mat-select placeholder="Preferred Gov Level" [formControlName]="'level'">
             <mat-option *ngFor="let level of levels" [value]="level.value">
               {{ level.viewValue }}
@@ -113,82 +113,82 @@
       <img [src]="fullImagePath" [routerLink]="['/']" alt="Polivols Logo" height="60px" width="auto">
     </div>
     <div>
-      <mat-form-field *ngIf="!isVolunteer">
+      <mat-form-field *ngIf="!isVolunteer" color="accent">
         <input matInput [placeholder]="'Campaign Name'" [formControlName]="'camp_name'" required>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput [placeholder]="'First Name'" [formControlName]="'first_name'" required maxlength="20">
         <mat-error *ngIf="first_name.hasError('required')">
           A first name is required
         </mat-error>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput placeholder="Last Name" formControlName="last_name" required required maxlength="20">
         <mat-error *ngIf="last_name.hasError('required')">
           A last name is required
         </mat-error>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput placeholder="Email" formControlName="email" required>
         <mat-error *ngIf="email.hasError('required')">
           A proper email is required
         </mat-error>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput [placeholder]="'Password'" [formControlName]="'password'" [type]="'password'" required maxlength="20">
         <mat-error *ngIf="password.hasError('required')">
           A password is required
         </mat-error>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput [type]="'number'" minlength="5" placeholder="Zip Code" [formControlName]="'zip_code'" maxlength="5" required>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <mat-select placeholder="State" [formControlName]="'state'" required>
           <mat-option *ngFor="let state of states" [value]="state.value">
             {{ state.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
-      <mat-form-field *ngIf="!isVolunteer">
+      <mat-form-field *ngIf="!isVolunteer" color="accent">
         <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'" type="number">
       </mat-form-field>
-      <mat-form-field *ngIf="isVolunteer">
+      <mat-form-field *ngIf="isVolunteer" color="accent">
         <mat-select placeholder="Preferred Vol Type" [formControlName]="'type'">
           <mat-option *ngFor="let type of types" [value]="type.value">
             {{ type.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
-      <mat-form-field>
+      <mat-form-field color="accent">
         <mat-select placeholder="Party Affiliation" [formControlName]="'party'">
           <mat-option *ngFor="let party of parties" [value]="party.value">
             {{ party.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
-      <mat-form-field *ngIf="!isVolunteer">
+      <mat-form-field *ngIf="!isVolunteer" color="accent">
         <mat-select placeholder="Gov Level" [formControlName]="'level'">
           <mat-option *ngFor="let level of levels" [value]="level.value">
             {{ level.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="isVolunteer">
+      <mat-form-field *ngIf="isVolunteer" color="accent">
         <mat-select placeholder="Preferred Gov Level" [formControlName]="'level'">
           <mat-option *ngFor="let level of levels" [value]="level.value">
             {{ level.viewValue }}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
-      <mat-form-field *ngIf="!isVolunteer">
+      <mat-form-field *ngIf="!isVolunteer" color="accent">
         <input matInput [placeholder]="'Campaign Website Link'" value='www.polivols.com' [formControlName]="'link'">
       </mat-form-field><br>
       <div>
         Agree to Terms and Conditions?
         <button mat-button>View Terms</button><br>
         <div class="row justify-content-center">
-          <button mat-raised-button color="primary" (click)="register()">Register</button>
+          <button mat-raised-button [color]="'primary'" (click)="register()">Register</button>
         </div>
       </div>
     </div>

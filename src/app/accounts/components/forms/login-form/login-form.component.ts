@@ -11,7 +11,9 @@ import {AuthenticationService} from '../../../services/authentication.service';
 })
 export class LoginFormComponent implements OnInit {
   fullImagePath;
-  incorrect = false;
+  submitted;
+  respError;
+  invalidCreds = false;
   form: FormGroup;
   constructor(private authService: AuthenticationService, private router: Router) {
     this.fullImagePath = 'assets/logo1.png';
@@ -30,6 +32,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   submit() {
+    this.submitted = true;
     this.authService
       .login(this.form.get('email').value, this.form.get('password').value)
       .subscribe(token => {
@@ -40,7 +43,15 @@ export class LoginFormComponent implements OnInit {
           this.authService.setIsVolunteer(true);
           this.router.navigate(['/profile']);
         }
-      });
+      },
+        error => {
+        this.respError = error.error.non_field_errors[0];
+        if (this.respError === 'Unable to log in with provided credentials.') {
+          this.invalidCreds = true;
+        }});
+  }
+  isError() {
+    console.log(this.respError);
   }
 
   get email() {

@@ -6,13 +6,13 @@
       </div>
       <br><br>
       <div class="row justify-content-center align-content-center">
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput [placeholder]="'Email'" [required]="true" [formControlName]="'email'">
           <mat-error *ngIf="email.hasError('email')">
             You must include a valid email.
           </mat-error>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput [placeholder]="'Password'" [required]="true" [type]="'password'" [formControlName]="'password'">
           <mat-error *ngIf="password.hasError('required')">
             You must include a password!
@@ -23,6 +23,9 @@
     <br>
     <div class="container-fluid">
       <div class="row justify-content-end">
+        <div *ngIf="invalidCreds && submitted" class="error-msg">
+          Invalid email or password!
+        </div>
         <button mat-raised-button [color]="'primary'" (click)="submit()" [disabled]="!form.valid">Login</button>
       </div>
     </div>
