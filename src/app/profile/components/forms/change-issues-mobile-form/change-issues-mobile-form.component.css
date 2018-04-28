@@ -1,4 +1,6 @@
 .card-text {
+  word-break: break-all;
+  white-space: pre-wrap;
   font-family: "Asap", sans-serif;
   font-weight: bold;
   color: white;

@@ -19,6 +19,9 @@ export class AuthenticationService {
     this.jwtHelper.tokenGetter = () => {
       return localStorage.getItem('token');
     };
+    if (localStorage.getItem('token')) {
+      this.isVolunteer = !this.currentUser().is_campaign;
+    }
   }
 
   login(email: string, password: string) {
