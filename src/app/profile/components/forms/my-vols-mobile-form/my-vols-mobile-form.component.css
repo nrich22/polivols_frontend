@@ -1,0 +1,17 @@
+.card-text {
+  color: white;
+  margin-left: 15px;
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}
+.email-icon {
+  color: #f90101;
+}
+.vol-info {
+  margin-left: 15px;
+  font-family: "Asap", sans-serif;
+}
+.panel-title {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}

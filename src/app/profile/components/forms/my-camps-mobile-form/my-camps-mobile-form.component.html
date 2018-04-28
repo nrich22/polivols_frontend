@@ -1,0 +1,30 @@
+<div class="vol-container">
+  <div class="row justify-content-start card-text" *ngIf="currNumCamps > 1">
+    You have shown interest in {{currNumCamps}} Campaigns
+  </div>
+  <div class="row justify-content-start card-text" *ngIf="currNumCamps == 1">
+    You have shown interest in {{currNumCamps}} Campaign
+  </div>
+  <div class="row justify-content-start card-text" *ngIf="currNumCamps == 0">
+    You have not shown interest in any Campaigns. Click Find Campaigns to view campaigns near you.
+  </div>
+  <br>
+  <mat-accordion *ngFor="let camp of campaigns;">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="panel-title">
+          {{camp.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="row justify-content-start">
+        <div class="camp-info">
+          <p>{{camp.zip_code}}, {{camp.state}}</p>
+          <p>{{camp.party}}</p>
+          <p>{{camp.gov_level}} Campaign</p>
+          <a href="https://{{camp.link}}/">view website</a><br><br>
+          <button class="remove-button" mat-raised-button (click)="deleteMatch(camp);" onclick="this.disabled=true;" color="primary">Remove Me</button>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

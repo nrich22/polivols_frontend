@@ -1,0 +1,37 @@
+<div class="vol-container">
+  <div class="row justify-content-end" *ngIf="currNumVols > 1">
+    <button class="email-button" mat-raised-button (click)="openDialog()" color="primary">Email All</button>
+  </div>
+  <br>
+  <div class="row justify-content-start" *ngIf="currNumVols > 1">
+    <div class="card-text has-vols row justify-content-start">
+      {{currNumVols}} Volunteers have shown interest in your Campaign
+    </div>
+  </div>
+  <div class="row justify-content-start " *ngIf="currNumVols == 1">
+    <div class="card-text has-vols">
+      {{currNumVols}} Volunteer has shown interest in your Campaign
+    </div>
+  </div>
+  <div class="row justify-content-start card-text" *ngIf="currNumVols == 0">
+    No Volunteers have shown interest in your Campaign. Select Issues important to your Campaign to gain Volunteers.
+  </div>
+  <br>
+<mat-accordion *ngFor="let vol of volunteers;">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title class="panel-title">
+        {{vol.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="row justify-content-between">
+      <div class="vol-info">
+        <p>{{vol.zip_code}}, {{vol.state}}</p>
+        <p>{{vol.party}}</p>
+        <p>{{vol.type}}</p>
+      </div>
+      <mat-icon class="email-icon" (click)="openIndivDialog(vol)">mail</mat-icon>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</div>

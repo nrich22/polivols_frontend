@@ -1,3 +1,22 @@
+/* Large desktops and laptops */
+@media (min-width: 768px) {
+  .mobile-page {
+    display: none;
+  }
+  .logo {
+    margin-left: 20px;
+    margin-right: 15px;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .desktop-page {
+    display: none;
+  }
+  .logo {
+    margin-left: 10px;
+  }
+}
 .page-header {
   background-color: white;
 }
@@ -13,12 +32,9 @@
   background-color: #0e4f82;
 }
 .profile-container {
+  overflow-y: auto;
   height: 110vh;
   background-color: #0e4f82;
-}
-.logo {
-  margin-left: 20px;
-  margin-right: 15px;
 }
 .logout-button {
   font-family: "Asap", sans-serif;
@@ -46,4 +62,12 @@
 }
 .tabs {
   width: 90%;
+}
+.menu {
+  margin-top: 12.5px;
+  color: grey;
+}
+.menu-text {
+  font-family: "Asap", sans-serif;
+  color: grey;
 }

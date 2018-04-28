@@ -1,5 +1,5 @@
 <div class="profile-container">
-  <mat-card class="header-card">
+  <mat-card class="header-card desktop-page">
     <div class="row justify-content-between">
       <div class="row justify-content-start">
         <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/']" alt="Polivols Logo" height="60px" width="auto">
@@ -20,9 +20,26 @@
       </div>
     </div>
   </mat-card>
+  <mat-card class="header-card mobile-page">
+    <div class="row justify-content-between">
+      <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/']" alt="Polivols Logo" height="55px" width="auto">
+      <div class="menu">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>reorder</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="menu-text">My Camps</button>
+          <button mat-menu-item class="menu-text" [routerLink]="['/find_matches']">Find Camps</button>
+          <button mat-menu-item class="menu-text" [routerLink]="['/update_issues']">Update Issues</button>
+          <button mat-menu-item class="menu-text" (click)="logOut()">Log Out</button>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-card>
   <br>
 <div class="row justify-content-center align-content-center">
-  <app-my-camps-form></app-my-camps-form>
+  <app-my-camps-form class="desktop-page"></app-my-camps-form>
+  <app-my-camps-mobile-form class="mobile-page"></app-my-camps-mobile-form>
 </div>
 </div>
 

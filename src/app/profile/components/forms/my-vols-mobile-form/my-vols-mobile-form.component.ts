@@ -19,56 +19,46 @@ export interface VolElement {
 }
 
 @Component({
-  selector: 'app-my-vols-form',
-  templateUrl: './my-vols-form.component.html',
-  styleUrls: ['./my-vols-form.component.css']
+  selector: 'app-my-vols-mobile-form',
+  templateUrl: './my-vols-mobile-form.component.html',
+  styleUrls: ['./my-vols-mobile-form.component.css']
 })
 
-export class MyVolsFormComponent implements OnInit, AfterViewInit {
+export class MyVolsMobileFormComponent implements OnInit {
   subject: string;
   message: string;
   recipient_list = [];
   recipients_list = [];
   currNumVols;
   numDesiredVols;
-  displayedColumns = ['name', 'zip_code', 'state', 'party', 'type', 'email'];
-  dataSource: MatTableDataSource<VolElement>;
+  volunteers: VolElement[];
   constructor(
     private matchService: MatchesService,
+    private authService: AuthenticationService,
+    private router: Router,
     private emailService: EmailService,
     public dialog: MatDialog) {}
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {
-    this.dataSource = new MatTableDataSource([]);
     this.matchService.getCampMatches()
       .subscribe((matches: any[]) => {
-        const volunteers: VolElement[] = [];
+        this.volunteers = [];
         this.currNumVols = matches.length;
         for (const match of matches) {
           this.numDesiredVols = match.campaign.num_vols;
           this.recipients_list.push(match.volunteer.email);
-          volunteers.push({
+          this.volunteers.push({
             id: match.volunteer.id,
             email: match.volunteer.email,
             name: `${match.volunteer.first_name} ${match.volunteer.last_name}`,
             zip_code: match.volunteer.zip_code,
             state: match.volunteer.state,
             hours: match.volunteer.hrs_per_week,
-            party: match.volunteer.party,
+            party: this.getParty(match.volunteer.party),
             issues: match.volunteer.issues,
             type: this.getVolType(match.volunteer.type)
           });
         }
-        this.dataSource.data = volunteers;
       });
-  }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
   }
   openDialog(): void {
     this.emailService.emailTo = 'All Volunteers';
@@ -89,13 +79,31 @@ export class MyVolsFormComponent implements OnInit, AfterViewInit {
   }
   getVolType(gov_level) {
     if (gov_level === 'E') {
-      return 'Work Events';
+      return 'Wants to Work Events';
     }
     if (gov_level === 'P') {
-      return 'Make Phone Calls';
+      return 'Wants to Make Phone Calls';
     }
     if (gov_level === 'C') {
-      return 'Canvasing';
+      return 'Wants to help by Canvasing';
+    }
+    return '';
+  }
+  getParty(party) {
+    if (party === 'R') {
+      return 'Republican';
+    }
+    if (party === 'D') {
+      return 'Democrat';
+    }
+    if (party === 'I') {
+      return 'Independent';
+    }
+    if (party === 'G') {
+      return 'Green Party';
+    }
+    if (party === 'L') {
+      return 'Libertarian';
     }
     return '';
   }
