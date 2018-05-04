@@ -12,7 +12,6 @@ import {
 } from '@angular/material';
 import { CampProfilePageComponent } from './components/pages/camp-profile-page/camp-profile-page.component';
 import { ChangeIssuesFormComponent } from './components/forms/change-issues-form/change-issues-form.component';
-import { FindMatchesFormComponent } from './components/forms/find-matches-form/find-matches-form.component';
 import { MyCampsFormComponent } from './components/forms/my-camps-form/my-camps-form.component';
 import { MyVolsFormComponent } from './components/forms/my-vols-form/my-vols-form.component';
 import { EmailFormComponent } from './components/forms/email-form/email-form.component';
