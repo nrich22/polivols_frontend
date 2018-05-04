@@ -85,7 +85,7 @@ export class MyVolsMobileFormComponent implements OnInit {
       return 'Wants to Make Phone Calls';
     }
     if (gov_level === 'C') {
-      return 'Wants to help by Canvasing';
+      return 'Wants to help by Canvassing';
     }
     return '';
   }

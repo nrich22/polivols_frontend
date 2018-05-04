@@ -12,7 +12,7 @@ export class AuthenticationInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if (this.authService.currentUser()) {
+    if (this.authService.isLoggedIn()) {
       // If we are logged in, add the token to the header
       return next.handle(this.getAuthRequest(req))
         .catch(err => {

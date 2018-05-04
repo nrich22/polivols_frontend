@@ -90,8 +90,10 @@ export class AuthenticationService {
 
   isLoggedIn() {
     const token = localStorage.getItem('token');
-    if (token) {
-      return this.jwtHelper.isTokenExpired();
+    if (token && !this.jwtHelper.isTokenExpired()) {
+      return true;
+    } else if (token && this.jwtHelper.isTokenExpired()) {
+      localStorage.removeItem('token');
     }
     return false;
   }

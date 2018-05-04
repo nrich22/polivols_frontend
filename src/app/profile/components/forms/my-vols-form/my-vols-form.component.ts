@@ -95,7 +95,7 @@ export class MyVolsFormComponent implements OnInit, AfterViewInit {
       return 'Make Phone Calls';
     }
     if (gov_level === 'C') {
-      return 'Canvasing';
+      return 'Canvassing';
     }
     return '';
   }
