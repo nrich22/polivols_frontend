@@ -16,14 +16,14 @@ const routes: Routes = [
     path: 'register',
     component: RegisterPageComponent
   },
-  {
-    path: 'profile',
-    component: ProfilePageComponent
-  },
-  {
-    path: 'camp_profile',
-    component: CampProfilePageComponent
-  },
+  // {
+  //   path: 'profile',
+  //   component: ProfilePageComponent
+  // },
+  // {
+  //   path: 'camp_profile',
+  //   component: CampProfilePageComponent
+  // },
   {
     path: 'issues',
     component: IssuesPageComponent

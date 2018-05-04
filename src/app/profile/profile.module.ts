@@ -8,7 +8,7 @@ import { IssuesFormComponent } from './components/forms/issues-form/issues-form.
 import {
   MatCheckboxModule, MatInputModule, MatButtonModule, MatCardModule, MatTabsModule,
   MatIconModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatProgressBarModule, MatProgressSpinnerModule,
-  MatExpansionModule, MatMenuModule
+  MatExpansionModule, MatMenuModule, MatToolbarModule
 } from '@angular/material';
 import { CampProfilePageComponent } from './components/pages/camp-profile-page/camp-profile-page.component';
 import { ChangeIssuesFormComponent } from './components/forms/change-issues-form/change-issues-form.component';
@@ -25,6 +25,7 @@ import { ChangeIssuesPageComponent } from './components/pages/change-issues-page
 import { MyVolsMobileFormComponent } from './components/forms/my-vols-mobile-form/my-vols-mobile-form.component';
 import { ChangeIssuesMobileFormComponent } from './components/forms/change-issues-mobile-form/change-issues-mobile-form.component';
 import { MyCampsMobileFormComponent } from './components/forms/my-camps-mobile-form/my-camps-mobile-form.component';
+import { IssuesMobileFormComponent } from './components/forms/issues-mobile-form/issues-mobile-form.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { MyCampsMobileFormComponent } from './components/forms/my-camps-mobile-f
     MatProgressBarModule,
     MatButtonModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    MatToolbarModule
   ],
   providers: [
     AuthenticationService,
@@ -51,8 +53,9 @@ import { MyCampsMobileFormComponent } from './components/forms/my-camps-mobile-f
     CampaignService
   ],
   declarations: [ProfilePageComponent, IssuesPageComponent, IssuesFormComponent, CampProfilePageComponent,
-    ChangeIssuesFormComponent, FindMatchesFormComponent, MyCampsFormComponent, MyVolsFormComponent,
-    EmailFormComponent, ChangeIssuesPageComponent, MyVolsMobileFormComponent, ChangeIssuesMobileFormComponent, MyCampsMobileFormComponent],
+    ChangeIssuesFormComponent, MyCampsFormComponent, MyVolsFormComponent,
+    EmailFormComponent, ChangeIssuesPageComponent, MyVolsMobileFormComponent, ChangeIssuesMobileFormComponent,
+    MyCampsMobileFormComponent, IssuesMobileFormComponent],
   entryComponents: [
     EmailFormComponent,
   ]

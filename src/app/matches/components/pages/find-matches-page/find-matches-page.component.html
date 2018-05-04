@@ -1,25 +1,4 @@
 <div class="find-matches-container desktop-page">
-  <mat-card class="header-card">
-    <div class="row justify-content-between">
-      <div class="row justify-content-start">
-        <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/']" alt="Polivols Logo" height="60px" width="auto">
-        <div>
-          <p class="campaign-button" [routerLink]="['/profile']">My Campaigns</p>
-        </div>
-        <div>
-          <p class="campaign-button">Find Campaigns</p>
-        </div>
-        <div>
-          <p class="campaign-button" [routerLink]="['/update_issues']">Update Issues</p>
-        </div>
-      </div>
-      <div class="row justify-content-end profile-header-container">
-        <div>
-          <p class="logout-button" (click)="logOut()">Log Out</p>
-        </div>
-      </div>
-    </div>
-  </mat-card>
 <br>
 <div class="row justify-content-center page-body">
   <mat-card class="matches-card">
@@ -111,22 +90,6 @@
 </div>
 </div>
 <div class="find-matches-container mobile-page">
-<mat-card class="header-card mobile-page">
-  <div class="row justify-content-between">
-    <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/']" alt="Polivols Logo" height="55px" width="auto">
-    <div class="menu">
-      <button mat-button [matMenuTriggerFor]="menu">
-        <mat-icon>reorder</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item class="menu-text" [routerLink]="['/profile']">My Camps</button>
-        <button mat-menu-item class="menu-text">Find Camps</button>
-        <button mat-menu-item class="menu-text" [routerLink]="['/update_issues']">Update Issues</button>
-        <button mat-menu-item class="menu-text" (click)="logOut()">Log Out</button>
-      </mat-menu>
-    </div>
-  </div>
-</mat-card>
   <div class="row justify-content-center">
     <div class="mobile-page matches-view">
       <app-find-matches-mobile-form></app-find-matches-mobile-form>

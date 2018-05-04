@@ -17,6 +17,11 @@
     margin-left: 10px;
   }
 }
+.profile-container {
+  overflow-y: auto;
+  height: 110vh;
+  background-color: #0e4f82;
+}
 .mobile-page {
   width: 70%;
 }
@@ -33,11 +38,6 @@
   padding-left: 10px;
 }
 .page-body {
-  background-color: #0e4f82;
-}
-.profile-container {
-  overflow-y: auto;
-  height: 110vh;
   background-color: #0e4f82;
 }
 .logout-button {

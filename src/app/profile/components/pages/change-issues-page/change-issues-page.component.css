@@ -28,9 +28,6 @@
 .page-header {
   background-color: white;
 }
-.profile-body {
-  width: 80%;
-}
 .header-card {
   height: 70px;
   padding-top: 5px;
@@ -54,25 +51,6 @@
 .welcome-header {
   color: white;
   margin-left: 10px;
-}
-.profile-header {
-  margin-left: 20px;
-  color: #0e4878;
-  font-family: "Asap", sans-serif;
-}
-.profile-header-container {
-  height: 30px;
-}
-.tabs {
-  width: 90%;
-}
-.menu {
-  margin-top: 12.5px;
-  color: grey;
-}
-.menu-text {
-  font-family: "Asap", sans-serif;
-  color: grey;
 }
 .change-issues-mobile {
   overflow-y: auto;

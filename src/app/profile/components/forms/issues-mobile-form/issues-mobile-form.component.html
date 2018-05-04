@@ -1,0 +1,24 @@
+<mat-card class="issues-card">
+  <div class="row justify-content-center">
+    <img class="logo" [src]="'assets/logo1.png'" [routerLink]="['/']" alt="Polivols Logo" height="55px" width="auto">
+  </div>
+
+  <br>
+  <div class="row justify-content-center card-text">
+    Check off the political issues most important to you.
+  </div>
+  <br>
+  <div class="container">
+    <div class="row justify-content-start" *ngFor="let issue of issues">
+      <mat-checkbox color="primary" (click)="updateIssuesList(issue)">{{ issue }}</mat-checkbox>
+      <br>
+    </div>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <div class="row justify-content-between">
+      <button mat-raised-button (click)="skipForNow()" color="primary">Skip For Now</button>
+      <button mat-raised-button color="primary" (click)="updateIssues()">Continue</button>
+    </div>
+  </div>
+</mat-card>

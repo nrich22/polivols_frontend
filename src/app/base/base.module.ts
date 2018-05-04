@@ -5,19 +5,26 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BaseRoutingModule } from './base-routing.module';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import {HomePageComponent} from './components/pages/home-page/home-page.component';
-import {MatButtonModule, MatCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 import {AuthenticationInterceptorService} from './interceptors/authentication-interceptor.service';
+import { NavBarComponent } from './components/elements/nav-bar/nav-bar.component';
+import { BasePageComponent } from './components/pages/base-page/base-page.component';
 
 @NgModule({
   imports: [
     CommonModule,
     BaseRoutingModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule
   ],
   declarations: [
     NotFoundComponent,
     HomePageComponent,
+    NavBarComponent,
+    BasePageComponent,
   ],
   providers: [
     {
@@ -28,7 +35,8 @@ import {AuthenticationInterceptorService} from './interceptors/authentication-in
   ],
   exports: [
     NotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    BasePageComponent
   ]
 })
 export class BaseModule { }

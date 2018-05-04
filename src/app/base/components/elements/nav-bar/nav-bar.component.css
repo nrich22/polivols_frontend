@@ -1,0 +1,30 @@
+/* Large desktops and laptops */
+@media (min-width: 768px) {
+  .mobile-page {
+    display: none;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .desktop-page {
+    display: none;
+  }
+}
+.header-toolbar {
+  background-color: white;
+}
+.fill-remaining-space {
+  display: flex;
+  flex: 1 1 auto;
+}
+.logo {
+  margin-left: -12.5px;
+  margin-right: 10px;
+}
+.nav-button {
+  font-family: "Asap", sans-serif;
+  color: grey;
+}
+.menu {
+  color: grey;
+}
