@@ -31,7 +31,6 @@ export class IssuesFormComponent implements OnInit {
       const index: number = this.selected_issues.indexOf(title);
       delete this.selected_issues[index];
     }
-    console.log(this.selected_issues);
   }
   updateIssues() {
     this.issueService.updateIssues(this.selected_issues).subscribe(result => {

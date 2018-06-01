@@ -58,7 +58,6 @@ export class CampMatchesPageComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    console.log(this.recipient_list);
     this.matchService.setRecipientList(this.recipient_list);
   }
   Done() {

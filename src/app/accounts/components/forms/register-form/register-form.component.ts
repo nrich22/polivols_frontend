@@ -23,6 +23,7 @@ export class RegisterFormComponent implements OnInit {
   requiredState = false;
   isLinear = false;
   isVolunteer = true;
+  dateObj = new Date();
   parties = [
     {value: 'D', viewValue: 'Democratic'},
     {value: 'R', viewValue: 'Republican'},
@@ -129,13 +130,15 @@ export class RegisterFormComponent implements OnInit {
       link: new FormControl('', []),
       type: new FormControl('', []),
       camp_name: new FormControl('', []),
-      dob: new FormControl('', [])
+      dob: new FormControl('', [
+        Validators.required
+      ]),
+      phone_num: new FormControl('', [])
     });
   }
 
   register() {
     this.submitted = true;
-    console.log(this.form.get('dob'));
     this.authService.register(this.form.getRawValue(), this.isVolunteer)
       .switchMap(result => this.authService.login(this.form.get('email').value, this.form.get('password').value))
       .subscribe(result => {

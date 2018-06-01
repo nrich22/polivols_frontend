@@ -17,19 +17,19 @@
           <input matInput [placeholder]="'Campaign Name'" [formControlName]="'camp_name'" value="Jim Smith 4 Senate" required>
         </mat-form-field>
         <mat-form-field *ngIf="isVolunteer">
-          <input matInput [matDatepicker]="picker" [formControlName]="'dob'" required placeholder="Date of Birth">
+          <input matInput [ngModel]="dateObj" [matDatepicker]="picker" [formControlName]="'dob'" required placeholder="Date of Birth">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field><br>
         <mat-form-field color="accent">
-          <input matInput placeholder="Last Name" formControlName="last_name" required required maxlength="20">
+          <input matInput placeholder="Last Name" formControlName="last_name" required maxlength="20">
           <mat-error *ngIf="last_name.hasError('required')">
             A last name is required
           </mat-error>
         </mat-form-field>
         <mat-form-field *ngIf="isVolunteer" class="example-full-width">
           <span matPrefix>+1 &nbsp;</span>
-          <input type="tel" matInput placeholder="Phone Number">
+          <input type="tel" matInput formControlName="phone_num" placeholder="Phone Number">
         </mat-form-field><br>
         <mat-form-field color="accent">
           <input matInput placeholder="Email" formControlName="email" required>
@@ -132,7 +132,7 @@
         </mat-error>
       </mat-form-field><br>
       <mat-form-field color="accent">
-        <input matInput placeholder="Last Name" formControlName="last_name" required required maxlength="20">
+        <input matInput placeholder="Last Name" formControlName="last_name" required maxlength="20">
         <mat-error *ngIf="last_name.hasError('required')">
           A last name is required
         </mat-error>
@@ -149,6 +149,11 @@
           A password is required
         </mat-error>
       </mat-form-field><br>
+      <mat-form-field *ngIf="isVolunteer">
+        <input matInput [ngModel]="dateObj" [matDatepicker]="picker" [formControlName]="'dob'" required placeholder="Date of Birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br>
       <mat-form-field color="accent">
         <input matInput [type]="'number'" minlength="5" placeholder="Zip Code" [formControlName]="'zip_code'" maxlength="5" required>
       </mat-form-field><br>
@@ -158,6 +163,10 @@
             {{ state.viewValue }}
           </mat-option>
         </mat-select>
+      </mat-form-field><br>
+      <mat-form-field *ngIf="isVolunteer" class="example-full-width">
+        <span matPrefix>+1 &nbsp;</span>
+        <input type="tel" matInput formControlName="phone_num" placeholder="Phone Number">
       </mat-form-field><br>
       <mat-form-field *ngIf="!isVolunteer" color="accent">
         <input matInput [type]="'number'" [placeholder]="'Desired Number of Volunteers'" [formControlName]="'num_vols'" type="number">

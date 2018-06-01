@@ -15,7 +15,6 @@ export class ChangeIssuesPageComponent implements OnInit {
   }
   ngOnInit() {
     this.isVolunteer = this.authService.isVolunteer;
-    console.log(this.isVolunteer);
   }
   logOut() {
     this.authService.logout();

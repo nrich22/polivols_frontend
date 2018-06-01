@@ -38,6 +38,10 @@ export class AuthenticationService {
   }
 
   register(data, volunteer: boolean = true) {
+    if (!data['dob']) {
+    } else {
+      data['dob'] = new Date(data['dob']).toISOString();
+    }
     return this.http
       .post<any>(
         `${environment.baseUrl}/${volunteer ? 'volunteers' : 'campaigns'}/register/`,
