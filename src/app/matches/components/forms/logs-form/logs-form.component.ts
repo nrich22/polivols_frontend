@@ -78,6 +78,13 @@ export class LogsFormComponent implements OnInit {
       this.up_vol_knocks = this.form.get('vol_knocks').value;
     }
     this.matchService.updateMatch(this.curr_camp_id, this.up_vol_hrs, this.up_vol_calls, this.up_vol_knocks).subscribe();
+    for (let camp of this.campaigns) {
+      if (camp.camp_name === this.curr_camp_name) {
+        camp.vol_hrs = this.up_vol_hrs;
+        camp.vol_calls = this.up_vol_calls;
+        camp.vol_knocks = this.up_vol_knocks;
+      }
+    }
   }
   selectCamp() {
     this.selected = true;
