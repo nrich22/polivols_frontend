@@ -1,10 +1,11 @@
 <div class="logs-form-container">
+  <div class="row justify-content-center card-text">
+    Select a Campaign you have worked <br>
+    for to log hours, call and knocks.
+  </div>
+  <br>
   <form [formGroup]="form">
     <mat-card class="logs-card">
-      <div class="row justify-content-center card-text">
-        Select a Campaign you have worked for to log hours, call and knocks.
-      </div>
-      <br>
       <div class="row justify-content-center">
         <mat-form-field class="camp-input" color="accent">
           <mat-select placeholder="Campaign" [formControlName]="'camp'" (change)="selectCamp()">
@@ -21,10 +22,12 @@
           <input class="lrg-input" [formControlName]="'vol_hrs'" matInput placeholder="Hours Worked" type="number" min="0" [value]="curr_vol_hrs">
         </mat-form-field>
         <mat-icon class="icon">schedule</mat-icon>
+        <br>
         <mat-form-field class="vol-input" color="accent">
           <input class="lrg-input" [formControlName]="'vol_calls'" matInput placeholder="Calls Made" type="number" min="0" [value]="curr_vol_calls">
         </mat-form-field>
         <mat-icon class="icon">phone</mat-icon>
+        <br>
         <mat-form-field class="vol-input" color="accent">
           <input class="lrg-input" [formControlName]="'vol_knocks'" matInput placeholder="Doors Knocked" type="number" min="0" [value]="curr_vol_knocks">
         </mat-form-field>
@@ -33,7 +36,7 @@
       <br>
       <br>
       <div class="row justify-content-end">
-        <button mat-raised-button (click)="updateMatch()" color="primary">Save</button>
+        <button class="save-button" mat-raised-button (click)="updateMatch()" color="primary">Save</button>
       </div>
     </mat-card>
   </form>

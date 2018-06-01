@@ -18,6 +18,7 @@ import {EmailService} from '../profile/services/email.service';
 import {FindMatchesMobileFormComponent} from './components/forms/find-matches-mobile-form/find-matches-mobile-form.component';
 import {LogsFormComponent} from './components/forms/logs-form/logs-form.component';
 import { LogsPageComponent } from './components/pages/logs-page/logs-page.component';
+import { LogsMobileFormComponent } from './components/forms/logs-mobile-form/logs-mobile-form.component';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { LogsPageComponent } from './components/pages/logs-page/logs-page.compon
     MatIconModule,
     MatSelectModule
   ],
-  declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent, LogsFormComponent, LogsPageComponent],
+  declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent, LogsFormComponent, LogsPageComponent, LogsMobileFormComponent],
   providers: [
     AuthenticationService,
     MatchesService,

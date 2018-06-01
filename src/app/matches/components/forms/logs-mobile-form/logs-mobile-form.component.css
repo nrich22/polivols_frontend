@@ -12,19 +12,13 @@
   margin-right: 15px;
   margin-left: 15px;
 }
-.logs-card {
-  width: 100%;
-}
 .camp-input {
-  width: 40%;
-}
-.camp-card {
-  width: 400px;
-  height: 100px;
+  width: 60%;
 }
 .card-text {
   font-family: "Asap", sans-serif;
   font-weight: bold;
+  color: white;
 }
 .camp-title{
   font-family: "Asap", sans-serif;
@@ -34,4 +28,7 @@
   color: grey;
   width: 40px;
   height: 40px;
+}
+.save-button {
+  margin-right: 10px;
 }
