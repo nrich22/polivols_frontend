@@ -128,12 +128,14 @@ export class RegisterFormComponent implements OnInit {
       num_vols: new FormControl('', []),
       link: new FormControl('', []),
       type: new FormControl('', []),
-      camp_name: new FormControl('', [])
+      camp_name: new FormControl('', []),
+      dob: new FormControl('', [])
     });
   }
 
   register() {
     this.submitted = true;
+    console.log(this.form.get('dob'));
     this.authService.register(this.form.getRawValue(), this.isVolunteer)
       .switchMap(result => this.authService.login(this.form.get('email').value, this.form.get('password').value))
       .subscribe(result => {

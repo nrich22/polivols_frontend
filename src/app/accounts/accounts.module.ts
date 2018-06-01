@@ -16,7 +16,7 @@ import { RegisterPageComponent } from './components/pages/register-page/register
 import { RegisterFormComponent } from './components/forms/register-form/register-form.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material';
+import {MatCardModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 
 @NgModule({
@@ -27,6 +27,8 @@ import {MatCardModule} from '@angular/material';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatSelectModule,
     MatStepperModule,
     MatSlideToggleModule,

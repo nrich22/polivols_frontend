@@ -1,0 +1,5 @@
+.logs-container {
+  overflow-y: auto;
+  height: 110vh;
+  background-color: #0e4f82;
+}

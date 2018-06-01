@@ -1,0 +1,33 @@
+.log-card {
+  width: 75%;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.vol-input {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.vol-logs{
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.logs-card {
+  width: 100%;
+}
+.camp-input {
+  width: 40%;
+}
+.camp-card {
+  width: 400px;
+  height: 100px;
+}
+.card-text {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}
+.camp-title{
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}

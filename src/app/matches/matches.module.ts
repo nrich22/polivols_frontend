@@ -6,7 +6,7 @@ import { FindMatchesPageComponent } from './components/pages/find-matches-page/f
 import {MatTableModule} from '@angular/material/table';
 import {
   MatButtonModule, MatCardModule, MatExpansionModule, MatIconModule, MatInputModule, MatMenuModule, MatPaginatorModule,
-  MatProgressBarModule, MatSortModule
+  MatProgressBarModule, MatSelectModule, MatSortModule
 } from '@angular/material';
 import {MatchesService} from './services/matches.service';
 import { CampMatchesPageComponent } from './components/pages/camp-matches-page/camp-matches-page.component';
@@ -16,6 +16,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AuthenticationService} from '../accounts/services/authentication.service';
 import {EmailService} from '../profile/services/email.service';
 import {FindMatchesMobileFormComponent} from './components/forms/find-matches-mobile-form/find-matches-mobile-form.component';
+import {LogsFormComponent} from './components/forms/logs-form/logs-form.component';
+import { LogsPageComponent } from './components/pages/logs-page/logs-page.component';
 
 
 @NgModule({
@@ -33,9 +35,10 @@ import {FindMatchesMobileFormComponent} from './components/forms/find-matches-mo
     MatDialogModule,
     MatExpansionModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
-  declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent],
+  declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent, LogsFormComponent, LogsPageComponent],
   providers: [
     AuthenticationService,
     MatchesService,

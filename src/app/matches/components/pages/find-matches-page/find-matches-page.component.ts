@@ -64,10 +64,6 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
   createMatch(element) {
     this.matchService.createMatch(element.id).subscribe();
   }
-  logOut() {
-    this.authService.logout();
-    this.router.navigate(['/']);
-  }
   getGovLevel(gov_level) {
     if (gov_level === 'S') {
       return 'State';

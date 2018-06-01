@@ -26,6 +26,16 @@ export class MatchesService extends DataService {
         this.getJsonHeaders()
       );
   }
+  updateMatch(camp_id, vol_hrs, vol_calls, vol_knocks) {
+    const user = this.authService.currentUser();
+    return this.http
+      .post<any>(
+        `${environment.baseUrl}/matches/`,
+        JSON.stringify({volunteer: user.user_id, campaign: camp_id, vol_hrs: vol_hrs, vol_calls: vol_calls,
+          vol_knocks: vol_knocks}),
+        this.getJsonHeaders()
+      );
+  }
   deleteMatch(match_id) {
     const user = this.authService.currentUser();
     return this.http

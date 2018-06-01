@@ -18,6 +18,8 @@ import {ProfilePageComponent} from './profile/components/pages/profile-page/prof
 import {CampProfilePageComponent} from './profile/components/pages/camp-profile-page/camp-profile-page.component';
 import {ChangeIssuesPageComponent} from './profile/components/pages/change-issues-page/change-issues-page.component';
 import {FindMatchesPageComponent} from './matches/components/pages/find-matches-page/find-matches-page.component';
+import {LogsFormComponent} from './matches/components/forms/logs-form/logs-form.component';
+import {LogsPageComponent} from './matches/components/pages/logs-page/logs-page.component';
 
 
 @NgModule({
@@ -55,6 +57,10 @@ import {FindMatchesPageComponent} from './matches/components/pages/find-matches-
           {
             path: 'update_issues',
             component: ChangeIssuesPageComponent
+          },
+          {
+            path: 'logs',
+            component: LogsPageComponent
           }
         ]
       },
