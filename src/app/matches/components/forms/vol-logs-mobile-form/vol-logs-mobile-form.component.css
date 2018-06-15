@@ -1,0 +1,19 @@
+.logs-card {
+  margin-right: 10px;
+  margin-left: 10px;
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  width: 200px;
+  height: 150px;
+  color: white;
+  background: #f90101;
+}
+.icon {
+  color: white;
+  margin-left: 20px;
+  margin-top: 2.5%;
+}
+.log-value {
+  font-size: 30px;
+  color: white;
+}

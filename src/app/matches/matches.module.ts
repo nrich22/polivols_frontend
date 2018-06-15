@@ -19,6 +19,9 @@ import {FindMatchesMobileFormComponent} from './components/forms/find-matches-mo
 import {LogsFormComponent} from './components/forms/logs-form/logs-form.component';
 import { LogsPageComponent } from './components/pages/logs-page/logs-page.component';
 import { LogsMobileFormComponent } from './components/forms/logs-mobile-form/logs-mobile-form.component';
+import { VolLogsFormComponent } from './components/forms/vol-logs-form/vol-logs-form.component';
+import { VolLogsPageComponent } from './components/pages/vol-logs-page/vol-logs-page.component';
+import {VolLogsMobileFormComponent} from './components/forms/vol-logs-mobile-form/vol-logs-mobile-form.component';
 
 
 @NgModule({
@@ -39,7 +42,8 @@ import { LogsMobileFormComponent } from './components/forms/logs-mobile-form/log
     MatIconModule,
     MatSelectModule
   ],
-  declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent, LogsFormComponent, LogsPageComponent, LogsMobileFormComponent],
+  declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent,
+    LogsFormComponent, LogsPageComponent, LogsMobileFormComponent, VolLogsFormComponent, VolLogsPageComponent, VolLogsMobileFormComponent],
   providers: [
     AuthenticationService,
     MatchesService,

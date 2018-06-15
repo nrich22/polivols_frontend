@@ -20,6 +20,7 @@ import {ChangeIssuesPageComponent} from './profile/components/pages/change-issue
 import {FindMatchesPageComponent} from './matches/components/pages/find-matches-page/find-matches-page.component';
 import {LogsFormComponent} from './matches/components/forms/logs-form/logs-form.component';
 import {LogsPageComponent} from './matches/components/pages/logs-page/logs-page.component';
+import {VolLogsPageComponent} from './matches/components/pages/vol-logs-page/vol-logs-page.component';
 
 
 @NgModule({
@@ -61,6 +62,10 @@ import {LogsPageComponent} from './matches/components/pages/logs-page/logs-page.
           {
             path: 'logs',
             component: LogsPageComponent
+          },
+          {
+            path: 'vol_logs',
+            component: VolLogsPageComponent
           }
         ]
       },

@@ -1,0 +1,17 @@
+.logs-container {
+  overflow-y: auto;
+  height: 110vh;
+  background-color: #0e4f82;
+}
+/* Large desktops and laptops */
+@media (min-width: 768px) {
+  .mobile-page {
+    display: none;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .desktop-page {
+    display: none;
+  }
+}
