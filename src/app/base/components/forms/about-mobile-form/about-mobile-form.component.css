@@ -1,0 +1,21 @@
+.about-card {
+  width: 80%;
+}
+.expansion {
+  width: 80%;
+}
+.title {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: large;
+}
+.description {
+  font-family: "Asap", sans-serif;
+  text-align: center;
+}
+.name {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  color: grey;
+}

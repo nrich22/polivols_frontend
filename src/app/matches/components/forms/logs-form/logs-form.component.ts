@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatchesService} from '../../../services/matches.service';
+import {MatSnackBar} from '@angular/material';
 
 export interface MatchElement {
   match_id: number;
@@ -19,6 +20,7 @@ export interface MatchElement {
 })
 export class LogsFormComponent implements OnInit {
   form: FormGroup;
+  message: string;
   campaigns: MatchElement [];
   selected = false;
   curr_camp_name: string;

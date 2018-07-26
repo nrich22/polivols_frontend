@@ -37,7 +37,7 @@ export class IssuesFormComponent implements OnInit {
       if (this.authService.currentUser().is_campaign) {
         this.router.navigate(['/camp_profile']);
       } else {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/find_matches']);
       }
     });
   }
@@ -45,7 +45,7 @@ export class IssuesFormComponent implements OnInit {
     if (this.authService.currentUser().is_campaign) {
       this.router.navigate(['/camp_profile']);
     } else {
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/find_matches']);
     }
   }
 }

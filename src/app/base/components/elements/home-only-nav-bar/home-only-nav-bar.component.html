@@ -1,0 +1,21 @@
+<div class="row justify-content-end desktop">
+  <span class="spacer fill-remaining-space" *ngIf="!isHome"></span>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/login']">LOG IN</button>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/about']">ABOUT</button>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/contact']">CONTACT US</button>
+</div>
+<mat-toolbar class="header-toolbar mobile">
+  <mat-toolbar-row>
+    <span class="spacer fill-remaining-space"></span>
+    <div class="menu">
+      <button mat-button color="white" [matMenuTriggerFor]="menu">
+        <mat-icon>reorder</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item class="nav-button" [routerLink]="['/login']">LOG IN</button>
+        <button mat-menu-item class="nav-button" [routerLink]="['/about']">ABOUT</button>
+        <button mat-menu-item class="nav-button" [routerLink]="['/contact']">CONTACT US</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,41 @@
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: grey;
+}
+.title {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  color: grey;
+  font-size: x-large;
+}
+.email {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  color: grey;
+}
+.icon {
+  color: #f90101;
+  margin-right: 10px;
+  margin-left: 20px;
+  margin-top: 12.5px;
+}
+.contact-text {
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  color: grey;
+  margin-right: 10px;
+  margin-left: 10px;
+  line-height: 20px;
+}
+.contact-card {
+  width: 70%;
+  height: auto;
+}
+.social-icons {
+  margin-right: 9%;
+}

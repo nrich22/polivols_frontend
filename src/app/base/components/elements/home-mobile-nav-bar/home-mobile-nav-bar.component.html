@@ -1,0 +1,17 @@
+<mat-toolbar class="header-toolbar mobile-page">
+  <mat-toolbar-row>
+    <img class="logo" [src]="'assets/logo1.png'" alt="Polivols Logo" height="90%" width="auto" [routerLink]="['/']">
+    <span class="spacer fill-remaining-space"></span>
+    <div class="menu">
+      <button mat-button color="white" [matMenuTriggerFor]="menu">
+        <mat-icon>reorder</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item class="nav-button" [routerLink]="['/']">HOME</button>
+        <button mat-menu-item class="nav-button" [routerLink]="['/login']">LOG IN</button>
+        <button mat-menu-item class="nav-button" [routerLink]="['/about']">ABOUT</button>
+        <button mat-menu-item class="nav-button" [routerLink]="['/contact']">CONTACT US</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

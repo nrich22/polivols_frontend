@@ -1,5 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<div class="home-container container-fluid">
+<div class="home-container desktop container-fluid">
+  <app-home-only-nav-bar></app-home-only-nav-bar>
 <div class="row justify-content-center align-items-center">
   <br>
   <div>
@@ -29,6 +30,7 @@
   </div>
 <br>
 <br>
+<br>
   <div class="row justify-content-center align-items-center">
     <div class="home-bottom-container">
       <div class="row justify-content-center align-items-center">
@@ -38,16 +40,14 @@
           <p class="blurb-text"> with political campaigns in their area, engaging in and fighting for the issues they care most about.</p>
         </div>
       </div>
-      <div class="row justify-content-center align-items-center">
-        <p class="blurb-text">Already Have an Account?</p>
-      </div>
-      <div class="row justify-content-center align-items-center">
-        <button mat-raised-button [routerLink]="['/login']" color="primary">Login</button>
-      </div>
       <div class="home-blurb">
         <p class="blurb-text">For more information contact info@polivols.com</p>
       </div>
     </div>
   </div>
 <br>
+</div>
+<app-home-only-nav-bar class="mobile"></app-home-only-nav-bar>
+<div class="home-container mobile container-fluid">
+  <app-home-mobile-form></app-home-mobile-form>
 </div>

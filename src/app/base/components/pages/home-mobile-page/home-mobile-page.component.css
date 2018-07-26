@@ -1,0 +1,22 @@
+/* Large desktops and laptops */
+@media (min-width: 768px) {
+  .mobile-page {
+    display: none;
+  }
+  .home-container {
+    height: 100vh;
+    position: fixed;
+    background-image: url('/assets/capitol.png');
+    background-size: cover;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .desktop-page {
+    display: none;
+  }
+  .home-container {
+    background-color: lightgrey;
+    height: 100vh;
+  }
+}

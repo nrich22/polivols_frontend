@@ -46,6 +46,8 @@ export class FindMatchesMobileFormComponent implements OnInit {
       });
   }
   createMatch(element) {
+    this.numCamps -= 1;
+    this.campaigns = this.campaigns.filter(goodElement => goodElement.id !== element.id);
     this.matchService.createMatch(element.id).subscribe();
   }
   getGovLevel(gov_level) {

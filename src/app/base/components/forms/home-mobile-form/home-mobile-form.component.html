@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+  <div>
+    <img class="logo hidden-xs hidden-sm" [src]="'assets/polivols-web-logo.png'" alt="Polivols Logo" width="80%" height="auto">
+  </div>
+</div>
+<br>
+<br>
+<div class="row justify-content-center align-items-center">
+  <button class="register-button" mat-raised-button (click)="isVolunteer(true)" [routerLink]="['/register']" color="accent">
+    <div class="button-text-container">
+      <p class="button-text red">I AM A</p>
+      <h2 class="button-title">VOLUNTEER</h2>
+      <p class="button-text red">LOOKING FOR A CAMPAIGN</p>
+    </div>
+  </button>
+  <button class="register-button" mat-raised-button (click)="isVolunteer(false)" [routerLink]="['/register']" color="primary">
+    <div class="button-text-container">
+      <p class="button-text blue">I AM A</p>
+      <h2 class="button-title">CAMPAIGN</h2>
+      <p class="button-text blue">LOOKING FOR VOLUNTEERS</p>
+    </div>
+  </button>
+</div>
+<br>
+<br>
+<div class="row justify-content-center align-items-center">
+  <div class="text-box">
+    <p class="home-blurb blurb-text">
+      PoliVols is a matching app, through which prospective political volunteers can connect with political campaigns in their area, engaging in and fighting for the issues they care most about.
+    </p>
+    <p class="blurb-text">For more information contact info@polivols.com</p>
+  </div>
+</div>
+

@@ -73,6 +73,13 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-form-field *ngIf="isVolunteer" style="width: 30%" color="accent">
+          <mat-select placeholder="Vol Organization (if member)">
+            <mat-option *ngFor="let org of orgs" [value]="org.value">
+              {{ org.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
         <mat-form-field *ngIf="!isVolunteer" style="width: 30%" color="accent">
           <input matInput [placeholder]="'Campaign Website Link'" value='www.polivols.com' [formControlName]="'link'">
         </mat-form-field><br>
@@ -148,7 +155,7 @@
         <mat-error *ngIf="password.hasError('required')">
           A password is required
         </mat-error>
-      </mat-form-field><br>
+      </mat-form-field><br *ngIf="isVolunteer">
       <mat-form-field *ngIf="isVolunteer">
         <input matInput [ngModel]="dateObj" [matDatepicker]="picker" [formControlName]="'dob'" required placeholder="Date of Birth">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -163,7 +170,7 @@
             {{ state.viewValue }}
           </mat-option>
         </mat-select>
-      </mat-form-field><br>
+      </mat-form-field><br *ngIf="isVolunteer">
       <mat-form-field *ngIf="isVolunteer" class="example-full-width">
         <span matPrefix>+1 &nbsp;</span>
         <input type="tel" matInput formControlName="phone_num" placeholder="Phone Number">
@@ -199,6 +206,13 @@
           </mat-option>
         </mat-select>
       </mat-form-field><br>
+      <mat-form-field *ngIf="isVolunteer" color="accent">
+        <mat-select placeholder="Vol Organization (if member)">
+          <mat-option *ngFor="let org of orgs" [value]="org.value">
+            {{ org.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br *ngIf="isVolunteer">
       <mat-form-field *ngIf="!isVolunteer" color="accent">
         <input matInput [placeholder]="'Campaign Website Link'" value='www.polivols.com' [formControlName]="'link'">
       </mat-form-field><br>

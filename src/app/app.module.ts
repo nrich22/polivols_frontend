@@ -21,6 +21,10 @@ import {FindMatchesPageComponent} from './matches/components/pages/find-matches-
 import {LogsFormComponent} from './matches/components/forms/logs-form/logs-form.component';
 import {LogsPageComponent} from './matches/components/pages/logs-page/logs-page.component';
 import {VolLogsPageComponent} from './matches/components/pages/vol-logs-page/vol-logs-page.component';
+import {AboutPageComponent} from './base/components/pages/about-page/about-page.component';
+import {ContactPageComponent} from './base/components/pages/contact-page/contact-page.component';
+import {HomeMobilePageComponent} from './base/components/pages/home-mobile-page/home-mobile-page.component';
+import {HomeBasePageComponent} from './base/components/pages/home-base-page/home-base-page.component';
 
 
 @NgModule({
@@ -67,6 +71,20 @@ import {VolLogsPageComponent} from './matches/components/pages/vol-logs-page/vol
             path: 'vol_logs',
             component: VolLogsPageComponent
           }
+        ]
+      },
+      {
+        path: '',
+        component: HomeBasePageComponent,
+        children: [
+          {
+            path: 'about',
+            component: AboutPageComponent
+          },
+          {
+            path: 'contact',
+            component: ContactPageComponent
+          },
         ]
       },
       {

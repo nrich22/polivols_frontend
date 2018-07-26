@@ -54,7 +54,7 @@
         <ng-container matColumnDef="interested">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <button mat-raised-button (click)="deleteMatch(element);" onclick="this.disabled=true;" color="primary">Remove Me</button>
+            <button mat-raised-button (click)="deleteMatch(element); openSnackBar(element);" onclick="this.disabled=true;" color="primary">Remove Me</button>
           </mat-cell>
         </ng-container>
 

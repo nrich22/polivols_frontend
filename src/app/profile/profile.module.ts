@@ -8,7 +8,7 @@ import { IssuesFormComponent } from './components/forms/issues-form/issues-form.
 import {
   MatCheckboxModule, MatInputModule, MatButtonModule, MatCardModule, MatTabsModule,
   MatIconModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatProgressBarModule, MatProgressSpinnerModule,
-  MatExpansionModule, MatMenuModule, MatToolbarModule
+  MatExpansionModule, MatMenuModule, MatToolbarModule, MatSnackBarModule
 } from '@angular/material';
 import { CampProfilePageComponent } from './components/pages/camp-profile-page/camp-profile-page.component';
 import { ChangeIssuesFormComponent } from './components/forms/change-issues-form/change-issues-form.component';
@@ -43,7 +43,8 @@ import { IssuesMobileFormComponent } from './components/forms/issues-mobile-form
     MatButtonModule,
     MatExpansionModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSnackBarModule
   ],
   providers: [
     AuthenticationService,

@@ -6,6 +6,9 @@
     background-image: url('/assets/capitol.png');
     background-size: cover;
   }
+  .mobile {
+    display: none;
+  }
 }
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
@@ -14,7 +17,11 @@
   }
   .home-container {
     height: 100vh;
+    position: fixed;
     background-color: lightgrey;
+  }
+  .desktop {
+    display: none;
   }
 }
 .register-button {

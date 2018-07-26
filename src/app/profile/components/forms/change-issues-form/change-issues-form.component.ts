@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 import {IssuesService} from '../../../services/issues.service';
+import any = jasmine.any;
 
 @Component({
   selector: 'app-change-issues-form',
@@ -10,6 +11,8 @@ import {IssuesService} from '../../../services/issues.service';
 })
 export class ChangeIssuesFormComponent implements OnInit {
   issues;
+  user;
+  user_issues;
   updated: boolean;
   selected_issues = [];
   fullImagePath;
@@ -22,6 +25,7 @@ export class ChangeIssuesFormComponent implements OnInit {
 
   ngOnInit() {
     this.issueService.getIssues().subscribe((data: any[]) => this.issues = data.map(issue => issue.title));
+    this.issueService.getUser().subscribe(data => this.user = data);
   }
   updateIssuesList(title) {
     if (!this.selected_issues.includes(title)) {
@@ -32,6 +36,8 @@ export class ChangeIssuesFormComponent implements OnInit {
     }
   }
   updateIssues() {
+    this.issueService.getUser().subscribe(data => this.user = data);
+    console.log(this.user);
     this.issueService.updateIssues(this.selected_issues).subscribe(result => {this.updated = true; });
   }
 }

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTable, MatTableDataSource, MatSort} from '@angular/material';
+import {MatPaginator, MatTable, MatTableDataSource, MatSort, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {MatchesService} from '../../../services/matches.service';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
@@ -24,11 +24,13 @@ export interface Element {
 
 export class FindMatchesPageComponent implements AfterViewInit, OnInit {
   numCamps;
+  message: string;
   displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'issues_in_common', 'link', 'interested'];
   dataSource: MatTableDataSource<Element>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private authService: AuthenticationService, private matchService: MatchesService, private router: Router) {
+  constructor(private authService: AuthenticationService, private matchService: MatchesService, private router: Router,
+              public snackBar: MatSnackBar) {
     this.dataSource = new MatTableDataSource([]);
   }
   ngOnInit() {
@@ -56,12 +58,20 @@ export class FindMatchesPageComponent implements AfterViewInit, OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  openSnackBar(campElement: Element) {
+    this.message = 'You are now a Volunteer for ' + campElement.name;
+    this.snackBar.open(this.message, null, {
+      duration: 5000,
+    });
+  }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
   createMatch(element) {
+    this.numCamps -= 1;
+    this.dataSource.data = this.dataSource.data.filter(goodElement => goodElement.id !== element.id);
     this.matchService.createMatch(element.id).subscribe();
   }
   getGovLevel(gov_level) {

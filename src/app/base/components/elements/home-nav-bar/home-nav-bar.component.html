@@ -1,0 +1,10 @@
+<mat-toolbar class="header-toolbar desktop-page">
+  <mat-toolbar-row class="toolbar-row">
+  <img class="logo" [src]="'assets/logo1.png'" alt="Polivols Logo" height="55px" width="auto" *ngIf="!isHome" [routerLink]="['/']">
+  <span class="spacer fill-remaining-space" *ngIf="!isHome"></span>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/']">HOME</button>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/login']">LOG IN</button>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/about']">ABOUT</button>
+  <button mat-flat-button class="nav-button" color="transparent" [routerLink]="['/contact']">CONTACT US</button>
+  </mat-toolbar-row>
+</mat-toolbar>

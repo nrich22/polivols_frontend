@@ -68,7 +68,7 @@
       <ng-container matColumnDef="interested">
         <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <button mat-raised-button (click)="createMatch(element);" onclick="this.disabled=true;" color="primary">Volunteer</button>
+            <button mat-raised-button (click)="createMatch(element); openSnackBar(element);" onclick="this.disabled=true;" color="primary">Volunteer</button>
           </mat-cell>
       </ng-container>
 
@@ -86,7 +86,6 @@
       <button mat-raised-button [routerLink]="['/profile']" color="primary">Done</button>
     </div>
   </mat-card>
-
 </div>
 </div>
 <div class="find-matches-container mobile-page">

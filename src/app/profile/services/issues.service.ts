@@ -14,6 +14,16 @@ export class IssuesService extends DataService {
     return this.http
       .get(`${environment.baseUrl}/issues`);
   }
+  getUser() {
+    const id = this.authService.currentUser().user_id;
+    if (this.authService.isVolunteer) {
+      return this.http
+        .get(`${environment.baseUrl}/volunteers/${id}/`);
+    } else {
+      return this.http
+        .get(`${environment.baseUrl}/campaigns/${id}/`);
+    }
+  }
   updateIssues(issues) {
     const user = this.authService.currentUser();
     return this.http

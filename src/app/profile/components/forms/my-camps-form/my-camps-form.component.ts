@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatSnackBar, MatTableDataSource} from '@angular/material';
 import {MatchesService} from '../../../../matches/services/matches.service';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
 
@@ -21,10 +21,11 @@ export interface CampElement {
 })
 export class MyCampsFormComponent implements OnInit, AfterViewInit {
   currNumCamps;
+  message: string;
   displayedColumns = ['name', 'party', 'gov_level', 'zip_code', 'state', 'link', 'interested'];
   dataSource: MatTableDataSource<CampElement>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(private matchService: MatchesService) {}
+  constructor(private matchService: MatchesService, public snackBar: MatSnackBar) {}
   ngOnInit() {
     this.dataSource = new MatTableDataSource([]);
     this.matchService.getVolMatches()
@@ -48,6 +49,12 @@ export class MyCampsFormComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+  openSnackBar(campElement: CampElement) {
+    this.message = 'Your no longer a Volunteer for ' + campElement.name;
+    this.snackBar.open(this.message, null, {
+      duration: 5000,
+    });
   }
   deleteMatch(element) {
     this.currNumCamps -= 1;

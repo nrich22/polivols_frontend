@@ -6,7 +6,7 @@ import { FindMatchesPageComponent } from './components/pages/find-matches-page/f
 import {MatTableModule} from '@angular/material/table';
 import {
   MatButtonModule, MatCardModule, MatExpansionModule, MatIconModule, MatInputModule, MatMenuModule, MatPaginatorModule,
-  MatProgressBarModule, MatSelectModule, MatSortModule
+  MatProgressBarModule, MatSelectModule, MatSnackBarModule, MatSortModule
 } from '@angular/material';
 import {MatchesService} from './services/matches.service';
 import { CampMatchesPageComponent } from './components/pages/camp-matches-page/camp-matches-page.component';
@@ -40,7 +40,8 @@ import {VolLogsMobileFormComponent} from './components/forms/vol-logs-mobile-for
     MatExpansionModule,
     MatMenuModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
   declarations: [FindMatchesPageComponent, CampMatchesPageComponent, EmailFormComponent, FindMatchesMobileFormComponent,
     LogsFormComponent, LogsPageComponent, LogsMobileFormComponent, VolLogsFormComponent, VolLogsPageComponent, VolLogsMobileFormComponent],
