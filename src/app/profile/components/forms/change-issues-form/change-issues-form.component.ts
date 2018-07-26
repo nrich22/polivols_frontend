@@ -11,8 +11,6 @@ import any = jasmine.any;
 })
 export class ChangeIssuesFormComponent implements OnInit {
   issues;
-  // user;
-  // user_issues;
   updated: boolean;
   selected_issues = [];
   fullImagePath;
@@ -25,7 +23,6 @@ export class ChangeIssuesFormComponent implements OnInit {
 
   ngOnInit() {
     this.issueService.getIssues().subscribe((data: any[]) => this.issues = data.map(issue => issue.title));
-    // this.issueService.getUser().subscribe(data => this.user = data);
   }
   updateIssuesList(title) {
     if (!this.selected_issues.includes(title)) {
