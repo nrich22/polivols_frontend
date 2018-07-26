@@ -25,7 +25,7 @@ export class ChangeIssuesFormComponent implements OnInit {
 
   ngOnInit() {
     this.issueService.getIssues().subscribe((data: any[]) => this.issues = data.map(issue => issue.title));
-    this.issueService.getUser().subscribe(data => this.user = data);
+    // this.issueService.getUser().subscribe(data => this.user = data);
   }
   updateIssuesList(title) {
     if (!this.selected_issues.includes(title)) {
@@ -37,7 +37,5 @@ export class ChangeIssuesFormComponent implements OnInit {
   }
   updateIssues() {
     this.issueService.getUser().subscribe(data => this.user = data);
-    console.log(this.user);
-    this.issueService.updateIssues(this.selected_issues).subscribe(result => {this.updated = true; });
   }
 }
