@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 
 @Component({
   selector: 'app-home-form',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthenticationService)  { }
 
   ngOnInit() {
   }
-
+  isVolunteer(isVolunteer: boolean) {
+    this.authService.setIsVolunteer(isVolunteer);
+  }
 }

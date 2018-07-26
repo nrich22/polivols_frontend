@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
   }
-  isVolunteer(isVolunteer: boolean){
+  isVolunteer(isVolunteer: boolean) {
     this.authService.setIsVolunteer(isVolunteer);
   }
 
