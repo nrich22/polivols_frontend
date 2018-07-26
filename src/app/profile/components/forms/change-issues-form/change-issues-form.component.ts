@@ -11,8 +11,8 @@ import any = jasmine.any;
 })
 export class ChangeIssuesFormComponent implements OnInit {
   issues;
-  user;
-  user_issues;
+  // user;
+  // user_issues;
   updated: boolean;
   selected_issues = [];
   fullImagePath;
@@ -36,6 +36,6 @@ export class ChangeIssuesFormComponent implements OnInit {
     }
   }
   updateIssues() {
-    this.issueService.getUser().subscribe(data => this.user = data);
+    this.issueService.updateIssues(this.selected_issues).subscribe(result => {this.updated = true; });
   }
 }
