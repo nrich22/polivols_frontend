@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 import {IssuesService} from '../../../services/issues.service';
-import any = jasmine.any;
 
 @Component({
   selector: 'app-change-issues-form',
