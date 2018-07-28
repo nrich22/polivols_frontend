@@ -39,7 +39,8 @@ export class RegisterFormComponent implements OnInit {
   orgs = [
     {value: 'P', viewValue: 'Planned Parenthood'},
     {value: 'N', viewValue: 'NAACP'},
-    {value: 'R', viewValue: 'NRA'}
+    {value: '0', viewValue: 'Other'},
+    {value: 'E', viewValue: 'None'}
   ];
   levels = [
     {value: 'L', viewValue: 'Local'},
