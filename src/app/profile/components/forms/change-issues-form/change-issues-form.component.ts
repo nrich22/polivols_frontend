@@ -15,7 +15,6 @@ export class ChangeIssuesFormComponent implements OnInit {
   fullImagePath;
 
   constructor(
-    private authService: AuthenticationService,
     private issueService: IssuesService) {
     this.fullImagePath = 'assets/logo1.png';
   }
@@ -32,6 +31,6 @@ export class ChangeIssuesFormComponent implements OnInit {
     }
   }
   updateIssues() {
-    this.issueService.updateIssues(this.selected_issues).subscribe(result => {this.updated = true; });
+    this.issueService.updateIssues(this.selected_issues).subscribe(result => { this.updated = true; });
   }
 }

@@ -15,13 +15,13 @@ export class IssuesService extends DataService {
       .get(`${environment.baseUrl}/issues`);
   }
   getUser() {
-    const id = this.authService.currentUser().user_id;
+    const user = this.authService.currentUser();
     if (this.authService.isVolunteer) {
       return this.http
-        .get(`${environment.baseUrl}/volunteers/${id}/`);
+        .get(`${environment.baseUrl}/volunteers/${user.user_id}/`);
     } else {
       return this.http
-        .get(`${environment.baseUrl}/campaigns/${id}/`);
+        .get(`${environment.baseUrl}/campaigns/${user.user_id}/`);
     }
   }
   updateIssues(issues) {
