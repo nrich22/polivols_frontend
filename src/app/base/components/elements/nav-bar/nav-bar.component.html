@@ -23,8 +23,10 @@
         <button mat-menu-item class="nav-button" *ngIf="!isVolunteer" [routerLink]="['/camp_profile']">My Vols</button>
         <button mat-menu-item class="nav-button" *ngIf="isVolunteer" [routerLink]="['/profile']">My Camps</button>
         <button mat-menu-item class="nav-button" *ngIf="isVolunteer" [routerLink]="['/logs']">My Logs</button>
+        <button mat-menu-item class="nav-button" *ngIf="!isVolunteer" [routerLink]="['/events']">My Events</button>
         <button mat-menu-item class="nav-button" *ngIf="!isVolunteer" [routerLink]="['/vol_logs']">Vol Logs</button>
         <button mat-menu-item class="nav-button" *ngIf="isVolunteer" [routerLink]="['/find_matches']">Find Camps</button>
+        <button mat-menu-item class="nav-button" *ngIf="isVolunteer" [routerLink]="['/find_events']">Find Events</button>
         <button mat-menu-item class="nav-button" [routerLink]="['/update_issues']">Update Issues</button>
         <button mat-menu-item class="nav-button" (click)="logOut()">Log Out</button>
       </mat-menu>

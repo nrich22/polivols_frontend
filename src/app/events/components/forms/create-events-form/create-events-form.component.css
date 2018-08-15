@@ -1,0 +1,17 @@
+.to-text {
+  margin-left: 0px;
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+}
+textarea {
+  height: 150px;
+}
+.description-form {
+  width: 90%;
+}
+.norm-form {
+  width: 45%;
+}
+.addr-form {
+  width: 65%;
+}

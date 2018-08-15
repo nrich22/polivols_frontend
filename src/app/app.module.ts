@@ -18,13 +18,14 @@ import {ProfilePageComponent} from './profile/components/pages/profile-page/prof
 import {CampProfilePageComponent} from './profile/components/pages/camp-profile-page/camp-profile-page.component';
 import {ChangeIssuesPageComponent} from './profile/components/pages/change-issues-page/change-issues-page.component';
 import {FindMatchesPageComponent} from './matches/components/pages/find-matches-page/find-matches-page.component';
-import {LogsFormComponent} from './matches/components/forms/logs-form/logs-form.component';
 import {LogsPageComponent} from './matches/components/pages/logs-page/logs-page.component';
 import {VolLogsPageComponent} from './matches/components/pages/vol-logs-page/vol-logs-page.component';
 import {AboutPageComponent} from './base/components/pages/about-page/about-page.component';
 import {ContactPageComponent} from './base/components/pages/contact-page/contact-page.component';
-import {HomeMobilePageComponent} from './base/components/pages/home-mobile-page/home-mobile-page.component';
 import {HomeBasePageComponent} from './base/components/pages/home-base-page/home-base-page.component';
+import {CampEventsPageComponent} from './events/components/pages/camp-events-page/camp-events-page.component';
+import {EventsModule} from './events/events.module';
+import {VolEventsPageComponent} from './events/components/pages/vol-events-page/vol-events-page.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {HomeBasePageComponent} from './base/components/pages/home-base-page/home
     AccountsModule,
     ProfileModule,
     MatchesModule,
+    EventsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -70,6 +72,14 @@ import {HomeBasePageComponent} from './base/components/pages/home-base-page/home
           {
             path: 'vol_logs',
             component: VolLogsPageComponent
+          },
+          {
+            path: 'events',
+            component: CampEventsPageComponent
+          },
+          {
+            path: 'find_events',
+            component: VolEventsPageComponent
           }
         ]
       },
