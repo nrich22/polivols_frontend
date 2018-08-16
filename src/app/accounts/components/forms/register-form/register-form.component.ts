@@ -3,6 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthenticationService} from '../../../services/authentication.service';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import {MatDialog} from '@angular/material';
+import {TosFormComponent} from '../tos-form/tos-form.component';
 
 /**
  * @title Stepper overview
@@ -101,6 +103,7 @@ export class RegisterFormComponent implements OnInit {
   ];
 
   constructor(
+    public dialog: MatDialog,
     private _formBuilder: FormBuilder,
     private authService: AuthenticationService,
     private router: Router
@@ -111,9 +114,9 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit() {
     this.isVolunteer = this.authService.isVolunteer;
     this.form = this._formBuilder.group({
-      first_name: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(30),
+        first_name: new FormControl('', [
+          Validators.required,
+          Validators.maxLength(30),
       ]),
       last_name: new FormControl('', [
         Validators.required,
@@ -165,6 +168,13 @@ export class RegisterFormComponent implements OnInit {
             this.requiredState = true;
           }
         });
+  }
+  openDialog(): void {
+    console.log('Viewing terms of use');
+    const dialogRef = this.dialog.open(TosFormComponent, {
+      width: '75%',
+      data: {}
+    });
   }
 
   get first_name() {

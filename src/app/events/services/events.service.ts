@@ -34,6 +34,13 @@ export class EventsService extends DataService {
         this.getHeaders()
       );
   }
+  updateEvent(id) {
+    return this.http
+      .patch<any>(
+        `${environment.baseUrl}/update_events/${id}/`,
+        this.getHeaders()
+      );
+  }
   public getHeaders() {
     return {headers: new HttpHeaders().set('Content-Type', 'application/json')};
   }

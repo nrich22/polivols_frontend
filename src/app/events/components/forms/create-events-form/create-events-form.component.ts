@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../../../accounts/services/authentication.service';
@@ -75,13 +75,32 @@ export class CreateEventsFormComponent implements OnInit {
   ngOnInit() {
     this.form = this._formBuilder.group({
       created_by: new FormControl(),
-      title: new FormControl(),
-      state: new FormControl(),
-      date: new FormControl(),
-      description: new FormControl(),
-      address: new FormControl(),
-      zip: new FormControl(),
-      city: new FormControl(),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(80),
+      ]),
+      state: new FormControl('', [
+        Validators.required,
+      ]),
+      date: new FormControl('', [
+        Validators.required,
+      ]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(500),
+      ]),
+      address: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(80),
+      ]),
+      zip: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(5),
+      ]),
+      city: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(80),
+      ]),
     });
   }
   create() {

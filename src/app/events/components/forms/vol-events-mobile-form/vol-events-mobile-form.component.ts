@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {EventsService} from '../../../services/events.service';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 
 export class EventElement {
+  id: number;
   created_by: string;
   title: string;
   date: string;
@@ -21,26 +24,55 @@ export class EventElement {
 })
 export class VolEventsMobileFormComponent implements OnInit {
   events: EventElement[] = [];
-  constructor() { }
+  currEvents: number;
+  constructor(
+    public authService: AuthenticationService,
+    public eventService: EventsService) { }
 
   ngOnInit() {
-    const newEvent = new EventElement();
-    newEvent.created_by = 'Nicks Camp';
-    newEvent.title = 'Nicks Event';
-    newEvent.date = '3/5/19';
-    newEvent.address = '51 Push Cart Lane';
-    newEvent.city = 'Hanover';
-    newEvent.state = 'MA';
-    newEvent.zip = '02339';
-    newEvent.description = 'Alan Lazowski has more than 35 years’ experience as an entrepreneur in a start up to today’s role as the Founder, Chairman and CEO of LAZ Parking, a $1.2 billion parking management company with more than 10,000 employees.\n' +
-      'As the Chairman of the National Parking Association, he will advance NPA’s strategic plan focus education, research, technology and advocacy to build strong parking communities in the private and public sector.';
-    newEvent.attending = 200;
-    newEvent.going = false;
-    newEvent.button_text = 'Attend';
-    this.events.push(newEvent);
+    this.eventService.findEvents()
+      .subscribe((campEvents: any[]) => {
+        this.currEvents = campEvents.length;
+        console.log(campEvents);
+        for (const event of campEvents) {
+          this.events.push({
+            id: event.id,
+            created_by: event.created_by.camp_name,
+            title: event.title,
+            date: event.date,
+            address: event.address,
+            city: event.city,
+            state: event.state,
+            zip: event.zip_code,
+            description: event.description,
+            attending: event.attending.length,
+            going: this.isButtonDisabled(event),
+            button_text: this.isGoing(event)
+          });
+        }
+      });
   }
   going(event) {
     event.going = true;
     event.button_text = 'Going';
+    this.eventService.updateEvent(event.id).subscribe();
+  }
+  isGoing(event) {
+    const user = this.authService.currentUser();
+    for (const vol of event.attending) {
+      if (vol.id === user.user_id) {
+        return 'Going';
+      }
+    }
+    return 'Attend';
+  }
+  isButtonDisabled(event) {
+    const user = this.authService.currentUser();
+    for (const vol of event.attending) {
+      if (vol.id === user.user_id) {
+        return true;
+      }
+    }
+    return false;
   }
 }

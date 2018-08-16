@@ -2,10 +2,12 @@
   color: white;
 }
 .card-text {
-  color: darkgrey;
-}
-.accordion {
-  width: 80%;
+  color: white;
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 25px;
 }
 .event-title {
   font-weight: bold;

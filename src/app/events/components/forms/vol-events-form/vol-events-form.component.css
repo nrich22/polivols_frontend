@@ -2,7 +2,11 @@
   color: white;
 }
 .card-text {
-  color: darkgrey;
+  color: white;
+  font-family: "Asap", sans-serif;
+  font-weight: bold;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 .accordion {
   width: 50%;

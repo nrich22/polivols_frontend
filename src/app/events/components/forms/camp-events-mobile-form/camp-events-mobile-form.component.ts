@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatCard, MatDialog} from '@angular/material';
 import {CreateEventsFormComponent} from '../create-events-form/create-events-form.component';
 import {CreateEventsMobileFormComponent} from '../create-events-mobile-form/create-events-mobile-form.component';
+import {EventsService} from '../../../services/events.service';
 
 export class EventElement {
   created_by: string;
@@ -22,22 +23,30 @@ export class EventElement {
 })
 export class CampEventsMobileFormComponent implements OnInit {
   events: EventElement[] = [];
+  currEvents: number;
   title: string;
   state: string;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public eventService: EventsService) { }
 
   ngOnInit() {
-    const newEvent = new EventElement();
-    newEvent.created_by = 'Nicks Camp';
-    newEvent.title = 'Nicks Event';
-    newEvent.date = '3/5/19';
-    newEvent.address = '51 Push Cart Lane';
-    newEvent.city = 'Hanover';
-    newEvent.state = 'MA';
-    newEvent.zip = '02339';
-    newEvent.description = 'THIS WILL BE A GREAT EVENT';
-    newEvent.attending = 200;
-    this.events.push(newEvent);
+    this.eventService.getCampEvents()
+      .subscribe((campEvents: any[]) => {
+        this.currEvents = campEvents.length;
+        console.log(campEvents);
+        for (const event of campEvents) {
+          this.events.push({
+            created_by: event.created_by.camp_name,
+            title: event.title,
+            date: event.date,
+            address: event.address,
+            city: event.city,
+            state: event.state,
+            zip: event.zip_code,
+            description: event.description,
+            attending: event.attending.length
+          });
+        }
+      });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateEventsMobileFormComponent, {

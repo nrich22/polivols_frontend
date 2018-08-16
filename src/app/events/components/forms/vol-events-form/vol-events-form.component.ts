@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {EventsService} from '../../../services/events.service';
+import {AuthenticationService} from '../../../../accounts/services/authentication.service';
 
 export class EventElement {
+  id: number;
   created_by: string;
   title: string;
   date: string;
@@ -23,15 +25,17 @@ export class EventElement {
 export class VolEventsFormComponent implements OnInit {
   events: EventElement[] = [];
   currEvents: number;
-  constructor(public eventService: EventsService) { }
+  constructor(
+    public authService: AuthenticationService,
+    public eventService: EventsService) { }
 
   ngOnInit() {
     this.eventService.findEvents()
       .subscribe((campEvents: any[]) => {
         this.currEvents = campEvents.length;
-        console.log(campEvents);
         for (const event of campEvents) {
           this.events.push({
+            id: event.id,
             created_by: event.created_by.camp_name,
             title: event.title,
             date: event.date,
@@ -41,8 +45,8 @@ export class VolEventsFormComponent implements OnInit {
             zip: event.zip_code,
             description: event.description,
             attending: event.attending.length,
-            going: false,
-            button_text: 'Attend'
+            going: this.isButtonDisabled(event),
+            button_text: this.isGoing(event)
           });
         }
       });
@@ -50,5 +54,24 @@ export class VolEventsFormComponent implements OnInit {
   going(event) {
     event.going = true;
     event.button_text = 'Going';
+    this.eventService.updateEvent(event.id).subscribe();
+  }
+  isGoing(event) {
+    const user = this.authService.currentUser();
+    for (const vol of event.attending) {
+      if (vol.id === user.user_id) {
+        return 'Going';
+      }
+    }
+    return 'Attend';
+  }
+  isButtonDisabled(event) {
+    const user = this.authService.currentUser();
+    for (const vol of event.attending) {
+      if (vol.id === user.user_id) {
+        return true;
+      }
+    }
+    return false;
   }
 }
