@@ -33,7 +33,6 @@ export class CampEventsFormComponent implements OnInit {
     this.eventService.getCampEvents()
       .subscribe((campEvents: any[]) => {
         this.currEvents = campEvents.length;
-        console.log(campEvents);
         for (const event of campEvents) {
           this.events.push({
             created_by: event.created_by.camp_name,

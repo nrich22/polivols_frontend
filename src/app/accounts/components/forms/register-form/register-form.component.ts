@@ -103,7 +103,6 @@ export class RegisterFormComponent implements OnInit {
   ];
 
   constructor(
-    public dialog: MatDialog,
     private _formBuilder: FormBuilder,
     private authService: AuthenticationService,
     private router: Router
@@ -145,7 +144,6 @@ export class RegisterFormComponent implements OnInit {
       phone_num: new FormControl('', [])
     });
   }
-
   register() {
     this.submitted = true;
     this.authService.register(this.form.getRawValue(), this.isVolunteer)
@@ -169,14 +167,6 @@ export class RegisterFormComponent implements OnInit {
           }
         });
   }
-  openDialog(): void {
-    console.log('Viewing terms of use');
-    const dialogRef = this.dialog.open(TosFormComponent, {
-      width: '75%',
-      data: {}
-    });
-  }
-
   get first_name() {
     return this.form.get('first_name');
   }

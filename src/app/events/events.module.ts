@@ -15,7 +15,6 @@ import { VolEventsMobileFormComponent } from './components/forms/vol-events-mobi
 import { CampEventsMobileFormComponent } from './components/forms/camp-events-mobile-form/camp-events-mobile-form.component';
 import { CreateEventsMobileFormComponent } from './components/forms/create-events-mobile-form/create-events-mobile-form.component';
 import {AuthenticationService} from '../accounts/services/authentication.service';
-import {EmailService} from '../profile/services/email.service';
 import {EventsService} from './services/events.service';
 
 @NgModule({
