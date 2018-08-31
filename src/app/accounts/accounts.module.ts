@@ -18,6 +18,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { TosFormComponent } from './components/forms/tos-form/tos-form.component';
+import { TosMobileFormComponent } from './components/forms/tos-mobile-form/tos-mobile-form.component';
 
 @NgModule({
   imports: [
@@ -40,14 +41,16 @@ import { TosFormComponent } from './components/forms/tos-form/tos-form.component
     LoginFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    TosFormComponent
+    TosFormComponent,
+    TosMobileFormComponent
   ],
   providers: [
     CampaignService,
     VolunteerService
   ],
   entryComponents: [
-    TosFormComponent
+    TosFormComponent,
+    TosMobileFormComponent
   ],
 })
 export class AccountsModule { }

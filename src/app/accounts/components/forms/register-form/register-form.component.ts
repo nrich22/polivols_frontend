@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {MatDialog} from '@angular/material';
 import {TosFormComponent} from '../tos-form/tos-form.component';
+import {TosMobileFormComponent} from '../tos-mobile-form/tos-mobile-form.component';
 
 /**
  * @title Stepper overview
@@ -169,9 +170,15 @@ export class RegisterFormComponent implements OnInit {
         });
   }
   openTerms(): void {
-    console.log('FUCKER');
     const dialogRef = this.dialog.open(TosFormComponent, {
       width: '70%',
+      height: '90%',
+      data: {}
+    });
+  }
+  openTermsMobile(): void {
+    const dialogRef = this.dialog.open(TosMobileFormComponent, {
+      width: '95%',
       height: '90%',
       data: {}
     });
