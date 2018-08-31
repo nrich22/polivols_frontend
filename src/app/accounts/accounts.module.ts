@@ -18,6 +18,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { TosFormComponent } from './components/forms/tos-form/tos-form.component';
+import { TosPageComponent } from './components/pages/tos-page/tos-page.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { TosFormComponent } from './components/forms/tos-form/tos-form.component
     LoginFormComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    TosFormComponent
+    TosFormComponent,
+    TosPageComponent
   ],
   providers: [
     CampaignService,

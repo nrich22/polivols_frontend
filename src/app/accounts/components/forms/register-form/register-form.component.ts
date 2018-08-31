@@ -105,7 +105,8 @@ export class RegisterFormComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.fullImagePath = 'assets/logo1.png';
   }
@@ -166,6 +167,14 @@ export class RegisterFormComponent implements OnInit {
             this.requiredState = true;
           }
         });
+  }
+  openTerms(): void {
+    console.log('FUCKER');
+    const dialogRef = this.dialog.open(TosFormComponent, {
+      width: '70%',
+      height: '90%',
+      data: {}
+    });
   }
   get first_name() {
     return this.form.get('first_name');

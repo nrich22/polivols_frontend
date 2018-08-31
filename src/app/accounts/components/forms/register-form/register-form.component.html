@@ -113,7 +113,7 @@
       <mat-step>
         <ng-template matStepLabel>Register</ng-template>
         Agree to Terms and Conditions?
-        <button mat-button matStepperNext>View Terms</button>
+        <button mat-flat-button class="nav-button" color="transparent" (click)="openTerms()">View Terms</button>
         <br>
         <div>
           <button mat-button matStepperPrevious>Back</button>
@@ -218,7 +218,7 @@
       </mat-form-field><br>
       <div>
         Agree to Terms and Conditions?
-        <button mat-raised-button>View Terms</button><br>
+        <button mat-flat-button class="nav-button" color="transparent" (click)="openTerms()">View Terms</button><br>
         <div class="row justify-content-center">
           <button mat-raised-button [color]="'primary'" (click)="register()">Register</button>
         </div>

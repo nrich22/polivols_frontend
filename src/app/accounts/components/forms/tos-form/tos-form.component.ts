@@ -15,5 +15,7 @@ export class TosFormComponent implements OnInit {
   ngOnInit() {
     console.log('Terms of Use');
   }
-
+  close() {
+    this.dialogRef.close();
+  }
 }

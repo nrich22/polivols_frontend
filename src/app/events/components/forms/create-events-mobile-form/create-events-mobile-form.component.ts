@@ -12,6 +12,7 @@ import {AuthenticationService} from '../../../../accounts/services/authenticatio
 })
 export class CreateEventsMobileFormComponent implements OnInit {
   form: FormGroup;
+  dateObj = new Date();
   states = [
     {value: 'AL', viewValue: 'Alabama'},
     {value: 'AK', viewValue: 'Alaska'},

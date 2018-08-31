@@ -12,6 +12,7 @@ import {EventsService} from '../../../services/events.service';
 })
 export class CreateEventsFormComponent implements OnInit {
   form: FormGroup;
+  dateObj = new Date();
   states = [
     {value: 'AL', viewValue: 'Alabama'},
     {value: 'AK', viewValue: 'Alaska'},
